@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>mayo_hci.operators API documentation</title>
+<meta name="description" content="Mathematical operators used in MAYO" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>mayo_hci.operators</code></h1>
+</header>
+<section id="section-intro">
+<p>Mathematical operators used in MAYO</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Mathematical operators used in MAYO
+&#39;&#39;&#39;
+
+&#39;&#39;&#39;
+ MAYO pipeline, from Pairet et al. 2020
+    Copyright (C) 2020, Benoit Pairet
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&#39;&#39;&#39;
+
+import numpy as np
+
+
+import vip_hci as vip
+import torch
+import kornia
+
+import pyshearlab
+import pywt
+
+from sklearn.decomposition import randomized_svd
+from simplex_projection import euclidean_proj_l1ball
+
+
+
+def A(f,K):
+    return np.real(np.fft.ifft2(np.fft.fft2(f) * K))
+def A_(f,K):
+    return np.real(np.fft.ifft2(np.fft.fft2(f) * np.ma.conjugate(K)))
+
+def soft_thresh(U,param):
+    return (np.abs(U)&gt;param)*(U-sign(U)*param)
+
+def sign(U):
+    return 1*(U&gt;0) - 1*(U&lt;0)
+
+
+
+def proj_low_rank(x,k):
+    &#39;&#39;&#39;
+        proj_low_rank
+    &#39;&#39;&#39;
+    #x=x*1.
+    U, s, V = randomized_svd(x, n_components=k, n_iter=5,transpose=&#39;auto&#39;)
+    #U, s, V = np.linalg.svd(x,full_matrices=False)
+    s[k:] = 0
+    return np.dot(U,np.dot(np.diag(s),V))
+
+
+def frame_euclidean_proj_l1ball(frame,_lambda):
+    if _lambda==0:
+        return frame*0
+    else:
+        return euclidean_proj_l1ball(frame.ravel(),_lambda).reshape(frame.shape)
+
+def proj_l2_ball(x,_lambda):
+    if _lambda==0:
+        return x*0
+    else:
+        l2_norm = np.sqrt( np.sum( x**2 ) )
+        if l2_norm &gt; _lambda:
+            return _lambda * x / l2_norm
+        else:
+            return x
+
+def prox_translation(x,y,prox_operator):
+    return y + prox_operator(x - y)
+
+def proj_l0_ball(x,k):
+    &#39;&#39;&#39;
+    proj_l0_ball
+    &#39;&#39;&#39;
+    m,n = x.shape
+    x_temp = np.copy(x).reshape(m*n)
+    x_temp = x_temp * (x_temp&gt;0)
+    ind = np.argsort(-np.abs(x_temp))
+    tau = np.abs(x_temp[ind][k])
+    x_temp = x_temp.reshape(m,n)
+    x_temp[np.abs(x)&lt;tau] = 0
+    return x_temp
+
+def shearlet_frame_thresh(frame,fraction_coeff):
+    n,_ = frame.shape
+    frame_wt = pyshearlab.SLsheardec2D(frame, shearletSystem)
+    sorted_wt = np.sort(np.ravel(abs(frame_wt)))[::-1]
+    n_pix, = sorted_wt.shape
+    treshold_value = sorted_wt[int(n_pix*fraction_coeff)]
+    frame_wt_T = np.multiply(frame_wt,(abs(frame_wt) &gt; treshold_value))
+    frame_T = pyshearlab.SLshearrec2D(frame_wt_T, shearletSystem)
+    return frame_T
+
+
+def positivity_mask_center(array,r_mask):
+    n,_ = array.shape
+    return positivity(vip.var.get_circle(vip.var.mask_circle(array,r_mask),n/2))
+
+def positivity(array):
+    return array*(array&gt;0)
+
+
+# This is a numpy code used to fit the residuals to the huber-loss
+def compute_huber_loss(x,huber_delta,a):
+    abs_x = np.abs(x)
+    c2 = 1
+    return np.where(abs_x &lt; huber_delta, a * abs_x ** 2, 2*a*huber_delta*abs_x -a*huber_delta**2)
+
+def compute_normalized_huber_loss_alternate_def(x,normalized_huber_delta):
+    abs_x = torch.abs(x)
+    return torch.where(abs_x &lt; normalized_huber_delta, 0.5 * abs_x ** 2, normalized_huber_delta*abs_x - normalized_huber_delta**2/2).sum()
+
+# This is the torch code used in the MAYO algorithm itself
+def compute_normalized_huber_loss(x,huber_delta,Xi):
+    abs_x = torch.abs(x/Xi)
+    return torch.where(abs_x &lt; huber_delta, Xi*0.5 * abs_x ** 2, Xi*huber_delta*abs_x - huber_delta**2/2).sum()
+
+def compute_l2_loss(x):
+    return 0.5*(x**2).sum()
+
+def compute_cube_frame_conv_only_planet_grad_pytorch(xp,xl,matrix,angles,compute_loss,kernel,mask, center_image):
+    grad_d_p, _, np_grad_L, loss = compute_cube_frame_conv_grad_pytorch(xp,xp*0,xl,matrix,angles,compute_loss,kernel,mask, center_image)
+    return grad_d_p, np_grad_L, loss
+
+
+def compute_cube_frame_conv_grad_pytorch(xd,xp,xl,matrix,angles,compute_loss,kernel,mask, center_image):
+    t,_ = matrix.shape
+    xs = xd + xp
+    n,_ = xs.shape
+    conv_op = lambda x : A(x,kernel)
+    adj_conv_op = lambda x : A_(x,kernel)
+    if t != angles.shape[0]:
+        print(&#39;ANGLES do not have t elements!&#39;)
+    
+    class FFTconv_numpy_torch(torch.autograd.Function):
+        @staticmethod
+        def forward(ctx, input):
+            numpy_input = input.detach().numpy()
+            result = conv_op(numpy_input)
+            return input.new(result)
+        @staticmethod
+        def backward(ctx, grad_output):
+            numpy_go = grad_output.numpy()
+            result = adj_conv_op(numpy_go)
+            return grad_output.new(result)
+    def fft_conv_np_torch(input):
+        return FFTconv_numpy_torch.apply(input)
+
+    # needed for rotation:
+    center: torch.tensor = torch.ones(1, 2)
+    center[..., 0] = center_image[0] # x
+    center[..., 1] = center_image[1] # y
+    scale: torch.tensor = torch.ones(1)
+
+    torch_xs = torch.tensor([[xs]],requires_grad=True)
+
+
+    torch_data = torch.tensor(matrix.reshape(t,n,n))
+    torch_L = torch.tensor(xl.reshape(t,n,n),requires_grad=True)
+    
+
+    loss : torch.tensor = torch.zeros(1,requires_grad=True)
+
+    for k in range(t):
+        angle: torch.tensor = torch.ones(1) * (angles[k])
+        M: torch.tensor = kornia.get_rotation_matrix2d(center, angle, scale)
+        rotated_xs = kornia.warp_affine(torch_xs.float(), M, dsize=(n,n))
+        #xs_rotated[k,:,:] = rotated_xs.detach().numpy()
+        loss = loss + compute_loss( fft_conv_np_torch(rotated_xs[0,0,:,:]) + torch_L[k,:,:] - torch_data[k,:,:]) 
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+    torch_grad_L = torch_L.grad
+
+
+    np_grad_xs = torch_grad_xs[0,0,:,:].detach().numpy()
+    #np_grad_L = torch_grad_L.detach().numpy()*mask
+    np_grad_L = torch_grad_L.detach().numpy()
+    #grad_d_p = A_(np_grad_xs,kernel)*mask
+    grad_d_p = np_grad_xs*mask
+    return grad_d_p, grad_d_p, np_grad_L.reshape(t,n*n), loss.detach().numpy()
+
+def compute_rotated_cube_grad_pytorch(xd,xp,bar_data,compute_loss,kernel,mask):
+    t,_,_ = bar_data.shape
+        
+    xs = A(xd+xp,kernel)
+    n,_ = xs.shape
+
+    torch_bar_data = torch.tensor(bar_data)
+    torch_xs = torch.tensor(xs,requires_grad=True)
+
+    loss : torch.tensor = torch.zeros(1,requires_grad=True)
+
+    for k in range(t):
+        loss = loss + compute_loss(torch_xs - torch_bar_data[k,:,:]) 
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+
+
+    np_grad_xs = torch_grad_xs.detach().numpy()
+    grad_d_p = A_(np_grad_xs,kernel)*mask
+    return grad_d_p, grad_d_p, loss.detach().numpy()
+
+def grad_MCA_pytorch(xd,xp,noisy_disk_planet,compute_loss,conv_op,adj_conv_op,mask):
+    xs = xd + xp
+    n,_ = xs.shape
+
+    class FFTconv_numpy_torch(torch.autograd.Function):
+        @staticmethod
+        def forward(ctx, input):
+            numpy_input = input.detach().numpy()
+            result = conv_op(numpy_input)
+            return input.new(result)
+        @staticmethod
+        def backward(ctx, grad_output):
+            numpy_go = grad_output.numpy()
+            result = adj_conv_op(numpy_go)
+            return grad_output.new(result)
+    def fft_conv_np_torch(input):
+        return FFTconv_numpy_torch.apply(input)
+    
+    torch_data = torch.tensor(noisy_disk_planet)
+    torch_xs = torch.tensor(xs,requires_grad=True)
+
+    loss = compute_loss(fft_conv_np_torch(torch_xs) - torch_data)
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+
+
+
+    np_grad_xs = torch_grad_xs.detach().numpy()
+    #return A_(np_grad_xs,kernel)*mask , loss.detach().numpy()
+    grad_xs = np_grad_xs*mask
+    return  grad_xs, grad_xs, loss.detach().numpy()
+
+
+def compute_cube_frame_grad_pytorch_no_regul(xs,xl,matrix,angles,compute_loss, mask, center_image):
+    t,_ = matrix.shape
+    n,_ = xs.shape
+
+
+    # needed for rotation:
+    center: torch.tensor = torch.ones(1, 2)
+    center[..., 0] = center_image[0] # x
+    center[..., 1] = center_image[1] # y
+    scale: torch.tensor = torch.ones(1)
+
+    torch_xs = torch.tensor([[xs]],requires_grad=True)
+
+    torch_data = torch.tensor(matrix.reshape(t,n,n))
+    torch_L = torch.tensor(xl.reshape(t,n,n),requires_grad=True)
+
+    loss : torch.tensor = torch.zeros(1,requires_grad=True)
+
+    for k in range(t):
+        angle: torch.tensor = torch.ones(1) * (angles[k])
+        M: torch.tensor = kornia.get_rotation_matrix2d(center, angle, scale)
+        rotated_xs = kornia.warp_affine(torch_xs.float(), M, dsize=(n,n))
+        loss = loss + compute_loss( (rotated_xs[0,0,:,:]) + torch_L[k,:,:] - torch_data[k,:,:]) 
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+    torch_grad_L = torch_L.grad
+
+    np_grad_xs = torch_grad_xs[0,0,:,:].detach().numpy()
+    np_grad_L = torch_grad_L.detach().numpy()*mask
+    return np_grad_xs*mask, np_grad_L.reshape(t,n*n), loss.detach().numpy()
+
+
+def cube_rotate_kornia(cube,angles,center_image):
+    t,n,_ = cube.shape
+    if t != angles.shape[0]:
+        print(&#39;ANGLES do not have t elements!&#39;)
+    center: torch.tensor = torch.ones(1, 2)
+    center[..., 0] = center_image[0] # x
+    center[..., 1] = center_image[1] # y
+    scale: torch.tensor = torch.ones(1)
+
+    cube_rotated = np.zeros((t,n,n))
+
+    for k in range(t):
+        torch_xs = torch.tensor([[cube[k,:,:]]],requires_grad=False)
+        angle: torch.tensor = torch.ones(1) * (angles[k])
+        M: torch.tensor = kornia.get_rotation_matrix2d(center, angle, scale)
+        cube_rotated[k,:,:] = kornia.warp_affine(torch_xs.float(), M, dsize=(n,n)).numpy()
+    return cube_rotated
+
+
+def get_rotation_center_and_mask(n,corono_radius,center_coord):
+    if center_coord:
+        pass
+    else:
+        center_coord = (n // 2 - 0.5, n // 2 - 0.5)
+    cx, cy = center_coord
+    xx, yy = np.ogrid[:n, :n]
+    circle =  np.sqrt((xx - cx) ** 2 + (yy - cy) ** 2) # eq of circle. sq dist to center
+    inner_circle_mask = (circle &gt; corono_radius)  # boolean mask
+    outside_circle_mask = (circle &lt; np.floor(n/2-2))
+    mask = inner_circle_mask*outside_circle_mask
+    return center_coord, mask
+
+
+def get_huber_parameters(algo):
+    print(&#39;Estimating the Huber-loss parameters...&#39;)
+    N_bins = 200
+    width_annulus = 5
+    # todo : fix this, should be automatic:
+    proportion_pixels_to_keep = 0.999841
+    proportion_pixels_to_keep = 0.999
+    if algo.parameters_algo[&#39;data_name&#39;] == &#34;SPHERE_HR4796A_clean&#34;:
+        proportion_pixels_to_keep = 0.99
+    if algo.parameters_algo[&#39;data_name&#39;] == &#34;HD135344B_IRDIS_2018_specal&#34;:
+        proportion_pixels_to_keep = 0.98
+    t,n,_ = algo.data.shape
+    U_L0,_,_ = randomized_svd(algo.xl.reshape(t,n*n), n_components=algo.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+    Low_rank_xl = (U_L0 @ U_L0.T @ algo.xl.reshape(t,n*n) ).reshape(t,n,n)
+    cube_xs = np.zeros((algo.t,algo.n,algo.n))
+    cube_xs[:,:,:] = algo.GreeDS_frame 
+    cube_xs = cube_rotate_kornia(cube_xs,algo.angles,algo.center_image)
+    error = algo.data - Low_rank_xl - cube_xs
+
+    sigma_by_annulus = np.ones((n,n))
+    for i in range(n//(width_annulus*2)):
+        inner_annulus = i*width_annulus
+        annulus_mask_ind = vip.var.shapes.get_annulus_segments(sigma_by_annulus,inner_annulus,width_annulus,mode=&#39;ind&#39;)
+        errors_in_annulus = error[:,annulus_mask_ind[0][0],annulus_mask_ind[0][1]]
+        sigma_by_annulus[annulus_mask_ind[0][0],annulus_mask_ind[0][1]] = np.sqrt(np.var(errors_in_annulus))
+
+    normalized_error = error/sigma_by_annulus*algo.mask
+
+    min_values = 0
+    max_values = np.sort(np.abs(normalized_error).ravel())[int(proportion_pixels_to_keep*t*n**2)] # 
+
+    pdf = np.zeros(N_bins)*0.
+    values = np.linspace(min_values,max_values,N_bins+1)
+
+    total_number_in_bin = 0
+    for kk in range(N_bins):
+        #INV_sub_exp_levels[kk] = np.sum(error&gt;=values[kk])*1.
+        who_is_in_bin = (np.abs(normalized_error) &gt;= values[kk])*1.*(np.abs(normalized_error) &lt; values[kk+1])*algo.mask
+        pdf[kk] = (np.sum(who_is_in_bin))
+        total_number_in_bin += pdf[kk]
+    pdf = pdf/total_number_in_bin
+    #INV_sub_exp_levels = INV_sub_exp_levels/n**2
+    values = values[:-1]
+
+    y = pdf*(pdf&gt;0)
+    #y += 10**-10
+    bins_to_consider = np.where(y&gt;0) # we do not look at bins with zero elements
+    y = y[bins_to_consider]
+    y /= np.max(y)
+
+    y = -np.log(y)
+
+    x = values[bins_to_consider]
+    #import matplotlib.pyplot as plt
+    #plt.figure()
+    from scipy.optimize import curve_fit
+    try:
+        pw, cov = curve_fit(compute_huber_loss, x, y)
+        print(&#39;Huber-loss parameters successfully estimated&#39;)
+    except:
+        print(&#39;Huber-loss NOT ESTIMATED!&#39;)
+        import sys
+        if sys.platform != &#39;linux&#39;: # for me, this means I am running on keneda or nielsen
+            import matplotlib.pyplot as plt
+            plt.plot(x, y, &#39;o&#39;)
+            plt.show()
+            print(&#39;We display the negative log-likelihood of normalized residuals&#39;)
+        else:
+            print(&#39;No display available, run in local to look at the negative log-likelihood of normalized residuals&#39;)
+        c = float(input(&#39;Choose value of c :   &#39;) )
+        delta = float(input(&#39;Choose value of delta :   &#39;) )
+        pw = delta, c
+    #    pw = (0,0)
+    algo.negative_log_hist_x = x
+    algo.negative_log_hist_y = y
+    algo.fitted_pw = pw
+    print(pw)
+    #plt.plot(x, y, &#39;o&#39;, x, compute_huber_loss(x, *pw), &#39;r-&#39;)
+    #plt.plot( (pw[0],pw[0]), (0, np.max(y)),&#39;g&#39;)
+    #plt.show()
+    return pw, sigma_by_annulus</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="mayo_hci.operators.A"><code class="name flex">
+<span>def <span class="ident">A</span></span>(<span>f, K)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def A(f,K):
+    return np.real(np.fft.ifft2(np.fft.fft2(f) * K))</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.A_"><code class="name flex">
+<span>def <span class="ident">A_</span></span>(<span>f, K)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def A_(f,K):
+    return np.real(np.fft.ifft2(np.fft.fft2(f) * np.ma.conjugate(K)))</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_cube_frame_conv_grad_pytorch"><code class="name flex">
+<span>def <span class="ident">compute_cube_frame_conv_grad_pytorch</span></span>(<span>xd, xp, xl, matrix, angles, compute_loss, kernel, mask, center_image)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_cube_frame_conv_grad_pytorch(xd,xp,xl,matrix,angles,compute_loss,kernel,mask, center_image):
+    t,_ = matrix.shape
+    xs = xd + xp
+    n,_ = xs.shape
+    conv_op = lambda x : A(x,kernel)
+    adj_conv_op = lambda x : A_(x,kernel)
+    if t != angles.shape[0]:
+        print(&#39;ANGLES do not have t elements!&#39;)
+    
+    class FFTconv_numpy_torch(torch.autograd.Function):
+        @staticmethod
+        def forward(ctx, input):
+            numpy_input = input.detach().numpy()
+            result = conv_op(numpy_input)
+            return input.new(result)
+        @staticmethod
+        def backward(ctx, grad_output):
+            numpy_go = grad_output.numpy()
+            result = adj_conv_op(numpy_go)
+            return grad_output.new(result)
+    def fft_conv_np_torch(input):
+        return FFTconv_numpy_torch.apply(input)
+
+    # needed for rotation:
+    center: torch.tensor = torch.ones(1, 2)
+    center[..., 0] = center_image[0] # x
+    center[..., 1] = center_image[1] # y
+    scale: torch.tensor = torch.ones(1)
+
+    torch_xs = torch.tensor([[xs]],requires_grad=True)
+
+
+    torch_data = torch.tensor(matrix.reshape(t,n,n))
+    torch_L = torch.tensor(xl.reshape(t,n,n),requires_grad=True)
+    
+
+    loss : torch.tensor = torch.zeros(1,requires_grad=True)
+
+    for k in range(t):
+        angle: torch.tensor = torch.ones(1) * (angles[k])
+        M: torch.tensor = kornia.get_rotation_matrix2d(center, angle, scale)
+        rotated_xs = kornia.warp_affine(torch_xs.float(), M, dsize=(n,n))
+        #xs_rotated[k,:,:] = rotated_xs.detach().numpy()
+        loss = loss + compute_loss( fft_conv_np_torch(rotated_xs[0,0,:,:]) + torch_L[k,:,:] - torch_data[k,:,:]) 
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+    torch_grad_L = torch_L.grad
+
+
+    np_grad_xs = torch_grad_xs[0,0,:,:].detach().numpy()
+    #np_grad_L = torch_grad_L.detach().numpy()*mask
+    np_grad_L = torch_grad_L.detach().numpy()
+    #grad_d_p = A_(np_grad_xs,kernel)*mask
+    grad_d_p = np_grad_xs*mask
+    return grad_d_p, grad_d_p, np_grad_L.reshape(t,n*n), loss.detach().numpy()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_cube_frame_conv_only_planet_grad_pytorch"><code class="name flex">
+<span>def <span class="ident">compute_cube_frame_conv_only_planet_grad_pytorch</span></span>(<span>xp, xl, matrix, angles, compute_loss, kernel, mask, center_image)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_cube_frame_conv_only_planet_grad_pytorch(xp,xl,matrix,angles,compute_loss,kernel,mask, center_image):
+    grad_d_p, _, np_grad_L, loss = compute_cube_frame_conv_grad_pytorch(xp,xp*0,xl,matrix,angles,compute_loss,kernel,mask, center_image)
+    return grad_d_p, np_grad_L, loss</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_cube_frame_grad_pytorch_no_regul"><code class="name flex">
+<span>def <span class="ident">compute_cube_frame_grad_pytorch_no_regul</span></span>(<span>xs, xl, matrix, angles, compute_loss, mask, center_image)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_cube_frame_grad_pytorch_no_regul(xs,xl,matrix,angles,compute_loss, mask, center_image):
+    t,_ = matrix.shape
+    n,_ = xs.shape
+
+
+    # needed for rotation:
+    center: torch.tensor = torch.ones(1, 2)
+    center[..., 0] = center_image[0] # x
+    center[..., 1] = center_image[1] # y
+    scale: torch.tensor = torch.ones(1)
+
+    torch_xs = torch.tensor([[xs]],requires_grad=True)
+
+    torch_data = torch.tensor(matrix.reshape(t,n,n))
+    torch_L = torch.tensor(xl.reshape(t,n,n),requires_grad=True)
+
+    loss : torch.tensor = torch.zeros(1,requires_grad=True)
+
+    for k in range(t):
+        angle: torch.tensor = torch.ones(1) * (angles[k])
+        M: torch.tensor = kornia.get_rotation_matrix2d(center, angle, scale)
+        rotated_xs = kornia.warp_affine(torch_xs.float(), M, dsize=(n,n))
+        loss = loss + compute_loss( (rotated_xs[0,0,:,:]) + torch_L[k,:,:] - torch_data[k,:,:]) 
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+    torch_grad_L = torch_L.grad
+
+    np_grad_xs = torch_grad_xs[0,0,:,:].detach().numpy()
+    np_grad_L = torch_grad_L.detach().numpy()*mask
+    return np_grad_xs*mask, np_grad_L.reshape(t,n*n), loss.detach().numpy()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_huber_loss"><code class="name flex">
+<span>def <span class="ident">compute_huber_loss</span></span>(<span>x, huber_delta, a)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_huber_loss(x,huber_delta,a):
+    abs_x = np.abs(x)
+    c2 = 1
+    return np.where(abs_x &lt; huber_delta, a * abs_x ** 2, 2*a*huber_delta*abs_x -a*huber_delta**2)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_l2_loss"><code class="name flex">
+<span>def <span class="ident">compute_l2_loss</span></span>(<span>x)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_l2_loss(x):
+    return 0.5*(x**2).sum()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_normalized_huber_loss"><code class="name flex">
+<span>def <span class="ident">compute_normalized_huber_loss</span></span>(<span>x, huber_delta, Xi)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_normalized_huber_loss(x,huber_delta,Xi):
+    abs_x = torch.abs(x/Xi)
+    return torch.where(abs_x &lt; huber_delta, Xi*0.5 * abs_x ** 2, Xi*huber_delta*abs_x - huber_delta**2/2).sum()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_normalized_huber_loss_alternate_def"><code class="name flex">
+<span>def <span class="ident">compute_normalized_huber_loss_alternate_def</span></span>(<span>x, normalized_huber_delta)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_normalized_huber_loss_alternate_def(x,normalized_huber_delta):
+    abs_x = torch.abs(x)
+    return torch.where(abs_x &lt; normalized_huber_delta, 0.5 * abs_x ** 2, normalized_huber_delta*abs_x - normalized_huber_delta**2/2).sum()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.compute_rotated_cube_grad_pytorch"><code class="name flex">
+<span>def <span class="ident">compute_rotated_cube_grad_pytorch</span></span>(<span>xd, xp, bar_data, compute_loss, kernel, mask)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_rotated_cube_grad_pytorch(xd,xp,bar_data,compute_loss,kernel,mask):
+    t,_,_ = bar_data.shape
+        
+    xs = A(xd+xp,kernel)
+    n,_ = xs.shape
+
+    torch_bar_data = torch.tensor(bar_data)
+    torch_xs = torch.tensor(xs,requires_grad=True)
+
+    loss : torch.tensor = torch.zeros(1,requires_grad=True)
+
+    for k in range(t):
+        loss = loss + compute_loss(torch_xs - torch_bar_data[k,:,:]) 
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+
+
+    np_grad_xs = torch_grad_xs.detach().numpy()
+    grad_d_p = A_(np_grad_xs,kernel)*mask
+    return grad_d_p, grad_d_p, loss.detach().numpy()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.cube_rotate_kornia"><code class="name flex">
+<span>def <span class="ident">cube_rotate_kornia</span></span>(<span>cube, angles, center_image)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cube_rotate_kornia(cube,angles,center_image):
+    t,n,_ = cube.shape
+    if t != angles.shape[0]:
+        print(&#39;ANGLES do not have t elements!&#39;)
+    center: torch.tensor = torch.ones(1, 2)
+    center[..., 0] = center_image[0] # x
+    center[..., 1] = center_image[1] # y
+    scale: torch.tensor = torch.ones(1)
+
+    cube_rotated = np.zeros((t,n,n))
+
+    for k in range(t):
+        torch_xs = torch.tensor([[cube[k,:,:]]],requires_grad=False)
+        angle: torch.tensor = torch.ones(1) * (angles[k])
+        M: torch.tensor = kornia.get_rotation_matrix2d(center, angle, scale)
+        cube_rotated[k,:,:] = kornia.warp_affine(torch_xs.float(), M, dsize=(n,n)).numpy()
+    return cube_rotated</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.frame_euclidean_proj_l1ball"><code class="name flex">
+<span>def <span class="ident">frame_euclidean_proj_l1ball</span></span>(<span>frame, _lambda)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def frame_euclidean_proj_l1ball(frame,_lambda):
+    if _lambda==0:
+        return frame*0
+    else:
+        return euclidean_proj_l1ball(frame.ravel(),_lambda).reshape(frame.shape)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.get_huber_parameters"><code class="name flex">
+<span>def <span class="ident">get_huber_parameters</span></span>(<span>algo)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_huber_parameters(algo):
+    print(&#39;Estimating the Huber-loss parameters...&#39;)
+    N_bins = 200
+    width_annulus = 5
+    # todo : fix this, should be automatic:
+    proportion_pixels_to_keep = 0.999841
+    proportion_pixels_to_keep = 0.999
+    if algo.parameters_algo[&#39;data_name&#39;] == &#34;SPHERE_HR4796A_clean&#34;:
+        proportion_pixels_to_keep = 0.99
+    if algo.parameters_algo[&#39;data_name&#39;] == &#34;HD135344B_IRDIS_2018_specal&#34;:
+        proportion_pixels_to_keep = 0.98
+    t,n,_ = algo.data.shape
+    U_L0,_,_ = randomized_svd(algo.xl.reshape(t,n*n), n_components=algo.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+    Low_rank_xl = (U_L0 @ U_L0.T @ algo.xl.reshape(t,n*n) ).reshape(t,n,n)
+    cube_xs = np.zeros((algo.t,algo.n,algo.n))
+    cube_xs[:,:,:] = algo.GreeDS_frame 
+    cube_xs = cube_rotate_kornia(cube_xs,algo.angles,algo.center_image)
+    error = algo.data - Low_rank_xl - cube_xs
+
+    sigma_by_annulus = np.ones((n,n))
+    for i in range(n//(width_annulus*2)):
+        inner_annulus = i*width_annulus
+        annulus_mask_ind = vip.var.shapes.get_annulus_segments(sigma_by_annulus,inner_annulus,width_annulus,mode=&#39;ind&#39;)
+        errors_in_annulus = error[:,annulus_mask_ind[0][0],annulus_mask_ind[0][1]]
+        sigma_by_annulus[annulus_mask_ind[0][0],annulus_mask_ind[0][1]] = np.sqrt(np.var(errors_in_annulus))
+
+    normalized_error = error/sigma_by_annulus*algo.mask
+
+    min_values = 0
+    max_values = np.sort(np.abs(normalized_error).ravel())[int(proportion_pixels_to_keep*t*n**2)] # 
+
+    pdf = np.zeros(N_bins)*0.
+    values = np.linspace(min_values,max_values,N_bins+1)
+
+    total_number_in_bin = 0
+    for kk in range(N_bins):
+        #INV_sub_exp_levels[kk] = np.sum(error&gt;=values[kk])*1.
+        who_is_in_bin = (np.abs(normalized_error) &gt;= values[kk])*1.*(np.abs(normalized_error) &lt; values[kk+1])*algo.mask
+        pdf[kk] = (np.sum(who_is_in_bin))
+        total_number_in_bin += pdf[kk]
+    pdf = pdf/total_number_in_bin
+    #INV_sub_exp_levels = INV_sub_exp_levels/n**2
+    values = values[:-1]
+
+    y = pdf*(pdf&gt;0)
+    #y += 10**-10
+    bins_to_consider = np.where(y&gt;0) # we do not look at bins with zero elements
+    y = y[bins_to_consider]
+    y /= np.max(y)
+
+    y = -np.log(y)
+
+    x = values[bins_to_consider]
+    #import matplotlib.pyplot as plt
+    #plt.figure()
+    from scipy.optimize import curve_fit
+    try:
+        pw, cov = curve_fit(compute_huber_loss, x, y)
+        print(&#39;Huber-loss parameters successfully estimated&#39;)
+    except:
+        print(&#39;Huber-loss NOT ESTIMATED!&#39;)
+        import sys
+        if sys.platform != &#39;linux&#39;: # for me, this means I am running on keneda or nielsen
+            import matplotlib.pyplot as plt
+            plt.plot(x, y, &#39;o&#39;)
+            plt.show()
+            print(&#39;We display the negative log-likelihood of normalized residuals&#39;)
+        else:
+            print(&#39;No display available, run in local to look at the negative log-likelihood of normalized residuals&#39;)
+        c = float(input(&#39;Choose value of c :   &#39;) )
+        delta = float(input(&#39;Choose value of delta :   &#39;) )
+        pw = delta, c
+    #    pw = (0,0)
+    algo.negative_log_hist_x = x
+    algo.negative_log_hist_y = y
+    algo.fitted_pw = pw
+    print(pw)
+    #plt.plot(x, y, &#39;o&#39;, x, compute_huber_loss(x, *pw), &#39;r-&#39;)
+    #plt.plot( (pw[0],pw[0]), (0, np.max(y)),&#39;g&#39;)
+    #plt.show()
+    return pw, sigma_by_annulus</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.get_rotation_center_and_mask"><code class="name flex">
+<span>def <span class="ident">get_rotation_center_and_mask</span></span>(<span>n, corono_radius, center_coord)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_rotation_center_and_mask(n,corono_radius,center_coord):
+    if center_coord:
+        pass
+    else:
+        center_coord = (n // 2 - 0.5, n // 2 - 0.5)
+    cx, cy = center_coord
+    xx, yy = np.ogrid[:n, :n]
+    circle =  np.sqrt((xx - cx) ** 2 + (yy - cy) ** 2) # eq of circle. sq dist to center
+    inner_circle_mask = (circle &gt; corono_radius)  # boolean mask
+    outside_circle_mask = (circle &lt; np.floor(n/2-2))
+    mask = inner_circle_mask*outside_circle_mask
+    return center_coord, mask</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.grad_MCA_pytorch"><code class="name flex">
+<span>def <span class="ident">grad_MCA_pytorch</span></span>(<span>xd, xp, noisy_disk_planet, compute_loss, conv_op, adj_conv_op, mask)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def grad_MCA_pytorch(xd,xp,noisy_disk_planet,compute_loss,conv_op,adj_conv_op,mask):
+    xs = xd + xp
+    n,_ = xs.shape
+
+    class FFTconv_numpy_torch(torch.autograd.Function):
+        @staticmethod
+        def forward(ctx, input):
+            numpy_input = input.detach().numpy()
+            result = conv_op(numpy_input)
+            return input.new(result)
+        @staticmethod
+        def backward(ctx, grad_output):
+            numpy_go = grad_output.numpy()
+            result = adj_conv_op(numpy_go)
+            return grad_output.new(result)
+    def fft_conv_np_torch(input):
+        return FFTconv_numpy_torch.apply(input)
+    
+    torch_data = torch.tensor(noisy_disk_planet)
+    torch_xs = torch.tensor(xs,requires_grad=True)
+
+    loss = compute_loss(fft_conv_np_torch(torch_xs) - torch_data)
+    loss.backward()
+    torch_grad_xs = torch_xs.grad
+
+
+
+    np_grad_xs = torch_grad_xs.detach().numpy()
+    #return A_(np_grad_xs,kernel)*mask , loss.detach().numpy()
+    grad_xs = np_grad_xs*mask
+    return  grad_xs, grad_xs, loss.detach().numpy()</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.positivity"><code class="name flex">
+<span>def <span class="ident">positivity</span></span>(<span>array)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def positivity(array):
+    return array*(array&gt;0)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.positivity_mask_center"><code class="name flex">
+<span>def <span class="ident">positivity_mask_center</span></span>(<span>array, r_mask)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def positivity_mask_center(array,r_mask):
+    n,_ = array.shape
+    return positivity(vip.var.get_circle(vip.var.mask_circle(array,r_mask),n/2))</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.proj_l0_ball"><code class="name flex">
+<span>def <span class="ident">proj_l0_ball</span></span>(<span>x, k)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>proj_l0_ball</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def proj_l0_ball(x,k):
+    &#39;&#39;&#39;
+    proj_l0_ball
+    &#39;&#39;&#39;
+    m,n = x.shape
+    x_temp = np.copy(x).reshape(m*n)
+    x_temp = x_temp * (x_temp&gt;0)
+    ind = np.argsort(-np.abs(x_temp))
+    tau = np.abs(x_temp[ind][k])
+    x_temp = x_temp.reshape(m,n)
+    x_temp[np.abs(x)&lt;tau] = 0
+    return x_temp</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.proj_l2_ball"><code class="name flex">
+<span>def <span class="ident">proj_l2_ball</span></span>(<span>x, _lambda)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def proj_l2_ball(x,_lambda):
+    if _lambda==0:
+        return x*0
+    else:
+        l2_norm = np.sqrt( np.sum( x**2 ) )
+        if l2_norm &gt; _lambda:
+            return _lambda * x / l2_norm
+        else:
+            return x</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.proj_low_rank"><code class="name flex">
+<span>def <span class="ident">proj_low_rank</span></span>(<span>x, k)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>proj_low_rank</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def proj_low_rank(x,k):
+    &#39;&#39;&#39;
+        proj_low_rank
+    &#39;&#39;&#39;
+    #x=x*1.
+    U, s, V = randomized_svd(x, n_components=k, n_iter=5,transpose=&#39;auto&#39;)
+    #U, s, V = np.linalg.svd(x,full_matrices=False)
+    s[k:] = 0
+    return np.dot(U,np.dot(np.diag(s),V))</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.prox_translation"><code class="name flex">
+<span>def <span class="ident">prox_translation</span></span>(<span>x, y, prox_operator)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def prox_translation(x,y,prox_operator):
+    return y + prox_operator(x - y)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.shearlet_frame_thresh"><code class="name flex">
+<span>def <span class="ident">shearlet_frame_thresh</span></span>(<span>frame, fraction_coeff)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shearlet_frame_thresh(frame,fraction_coeff):
+    n,_ = frame.shape
+    frame_wt = pyshearlab.SLsheardec2D(frame, shearletSystem)
+    sorted_wt = np.sort(np.ravel(abs(frame_wt)))[::-1]
+    n_pix, = sorted_wt.shape
+    treshold_value = sorted_wt[int(n_pix*fraction_coeff)]
+    frame_wt_T = np.multiply(frame_wt,(abs(frame_wt) &gt; treshold_value))
+    frame_T = pyshearlab.SLshearrec2D(frame_wt_T, shearletSystem)
+    return frame_T</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.sign"><code class="name flex">
+<span>def <span class="ident">sign</span></span>(<span>U)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sign(U):
+    return 1*(U&gt;0) - 1*(U&lt;0)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.operators.soft_thresh"><code class="name flex">
+<span>def <span class="ident">soft_thresh</span></span>(<span>U, param)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def soft_thresh(U,param):
+    return (np.abs(U)&gt;param)*(U-sign(U)*param)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="mayo_hci" href="index.html">mayo_hci</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="mayo_hci.operators.A" href="#mayo_hci.operators.A">A</a></code></li>
+<li><code><a title="mayo_hci.operators.A_" href="#mayo_hci.operators.A_">A_</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_cube_frame_conv_grad_pytorch" href="#mayo_hci.operators.compute_cube_frame_conv_grad_pytorch">compute_cube_frame_conv_grad_pytorch</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_cube_frame_conv_only_planet_grad_pytorch" href="#mayo_hci.operators.compute_cube_frame_conv_only_planet_grad_pytorch">compute_cube_frame_conv_only_planet_grad_pytorch</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_cube_frame_grad_pytorch_no_regul" href="#mayo_hci.operators.compute_cube_frame_grad_pytorch_no_regul">compute_cube_frame_grad_pytorch_no_regul</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_huber_loss" href="#mayo_hci.operators.compute_huber_loss">compute_huber_loss</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_l2_loss" href="#mayo_hci.operators.compute_l2_loss">compute_l2_loss</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_normalized_huber_loss" href="#mayo_hci.operators.compute_normalized_huber_loss">compute_normalized_huber_loss</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_normalized_huber_loss_alternate_def" href="#mayo_hci.operators.compute_normalized_huber_loss_alternate_def">compute_normalized_huber_loss_alternate_def</a></code></li>
+<li><code><a title="mayo_hci.operators.compute_rotated_cube_grad_pytorch" href="#mayo_hci.operators.compute_rotated_cube_grad_pytorch">compute_rotated_cube_grad_pytorch</a></code></li>
+<li><code><a title="mayo_hci.operators.cube_rotate_kornia" href="#mayo_hci.operators.cube_rotate_kornia">cube_rotate_kornia</a></code></li>
+<li><code><a title="mayo_hci.operators.frame_euclidean_proj_l1ball" href="#mayo_hci.operators.frame_euclidean_proj_l1ball">frame_euclidean_proj_l1ball</a></code></li>
+<li><code><a title="mayo_hci.operators.get_huber_parameters" href="#mayo_hci.operators.get_huber_parameters">get_huber_parameters</a></code></li>
+<li><code><a title="mayo_hci.operators.get_rotation_center_and_mask" href="#mayo_hci.operators.get_rotation_center_and_mask">get_rotation_center_and_mask</a></code></li>
+<li><code><a title="mayo_hci.operators.grad_MCA_pytorch" href="#mayo_hci.operators.grad_MCA_pytorch">grad_MCA_pytorch</a></code></li>
+<li><code><a title="mayo_hci.operators.positivity" href="#mayo_hci.operators.positivity">positivity</a></code></li>
+<li><code><a title="mayo_hci.operators.positivity_mask_center" href="#mayo_hci.operators.positivity_mask_center">positivity_mask_center</a></code></li>
+<li><code><a title="mayo_hci.operators.proj_l0_ball" href="#mayo_hci.operators.proj_l0_ball">proj_l0_ball</a></code></li>
+<li><code><a title="mayo_hci.operators.proj_l2_ball" href="#mayo_hci.operators.proj_l2_ball">proj_l2_ball</a></code></li>
+<li><code><a title="mayo_hci.operators.proj_low_rank" href="#mayo_hci.operators.proj_low_rank">proj_low_rank</a></code></li>
+<li><code><a title="mayo_hci.operators.prox_translation" href="#mayo_hci.operators.prox_translation">prox_translation</a></code></li>
+<li><code><a title="mayo_hci.operators.shearlet_frame_thresh" href="#mayo_hci.operators.shearlet_frame_thresh">shearlet_frame_thresh</a></code></li>
+<li><code><a title="mayo_hci.operators.sign" href="#mayo_hci.operators.sign">sign</a></code></li>
+<li><code><a title="mayo_hci.operators.soft_thresh" href="#mayo_hci.operators.soft_thresh">soft_thresh</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

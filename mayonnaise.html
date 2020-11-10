@@ -1,0 +1,1588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>mayo_hci.mayonnaise API documentation</title>
+<meta name="description" content="mayonnaise.py …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>mayo_hci.mayonnaise</code></h1>
+</header>
+<section id="section-intro">
+<p>mayonnaise.py </p>
+<p>Implementation of the MAYONNAISE pipeline from [PAI2020]</p>
+<h2 id="notes">Notes</h2>
+<p>[PAI2020] Pairet, Benoît, Faustine Cantalloube, and Laurent Jacques.
+"MAYONNAISE: a morphological components analysis pipeline
+for circumstellar disks and exoplanets imaging in the near infrared."
+arXiv preprint arXiv:2008.05170 (2020).</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+mayonnaise.py 
+
+Implementation of the MAYONNAISE pipeline from [PAI2020]
+
+
+Notes
+-----
+[PAI2020] Pairet, Benoît, Faustine Cantalloube, and Laurent Jacques.
+&#34;MAYONNAISE: a morphological components analysis pipeline 
+for circumstellar disks and exoplanets imaging in the near infrared.&#34; 
+arXiv preprint arXiv:2008.05170 (2020).
+&#39;&#39;&#39;
+
+&#39;&#39;&#39;
+
+ MAYO pipeline, from Pairet et al. 2020
+    Copyright (C) 2020, Benoit Pairet
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&#39;&#39;&#39;
+
+import vip_hci as vip
+
+import json
+
+import numpy as np
+from sklearn.decomposition import randomized_svd
+
+from mayo_hci.automatic_load_data import automatic_load_data
+
+from mayo_hci.operators import *
+from mayo_hci.algo_utils import *
+from mayo_hci.create_synthetic_data_with_disk_planet import *
+
+import torch
+
+def verify_parameters_algo(parameters_algo):
+    assert (&#39;min_objective&#39; in parameters_algo), &#34;KeyError: no min_objective specified, no output produced...&#34;
+    assert (&#39;rank&#39; in parameters_algo), &#34;KeyError: no rank specified, no output produced...&#34;
+    assert (&#39;regularization_disk&#39; in parameters_algo), &#34;KeyError: no regularization_disk specified, no output produced...&#34;
+    assert (&#39;regularization_planet&#39; in parameters_algo), &#34;KeyError: no raregularization_planettio_d_and_p specified, no output produced...&#34;
+    assert (&#39;tol&#39; in parameters_algo), &#34;KeyError: no tol specified, no output produced...&#34;
+    assert (&#39;max_iter&#39; in parameters_algo), &#34;KeyError: no max_iter specified, no output produced...&#34;
+    assert (&#39;regularization&#39; in parameters_algo), &#34;KeyError: no regularization specified, no output produced...&#34;
+    assert (&#39;greedy_n_iter&#39; in parameters_algo), &#34;KeyError: no greedy_n_iter, no output produced...&#34;
+    assert (&#39;greedy_n_iter_in_rank&#39; in parameters_algo), &#34;KeyError: no greedy_n_iter_in_rank, , no output produced...&#34;
+    assert (&#39;greedy_mask&#39; in parameters_algo), &#34;KeyError: no greedy_mask, , no output produced...&#34;
+    assert (&#39;conv&#39; in parameters_algo), &#34;KeyError: no conv, , no output produced...&#34;
+    try:
+        parameters_algo[&#39;mask_center&#39;]
+    except KeyError:
+        parameters_algo[&#39;mask_center&#39;] = 0
+    assert (&#39;scales&#39; in parameters_algo), &#34;KeyError: no scales, required for shearlets regularization, no output produced...&#34;
+    #if parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+    #    assert (&#39;huber_param&#39; in parameters_algo), &#34;KeyError: no huber_param, required for huber_loss, no output produced...&#34;
+    return parameters_algo
+
+
+class mayonnaise_pipeline(object):
+    &#39;&#39;&#39;
+    Initialize MAYO from the file parameters_algo.json in working_dir
+    Performs operations 1 to 6 of the MAYO pipeline (Algorithm 2 in Pairet etal 2020)
+    Differnt Child classes will solve either problem 27, D1 or D2 from Pairet etal 2020. 
+    Parameters
+    ----------
+    working_dir : str
+        working directory, containing the parameters_algo.json file and the add_synthetic_signal.json 
+        when mayo runs on synthetic data
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        self.working_dir = working_dir
+        try:
+            with open(self.working_dir+&#39;parameters_algo.json&#39;, &#39;r&#39;) as read_file_parameters_algo:
+                parameters_algo = json.load(read_file_parameters_algo)
+        except FileNotFoundError:
+            print(&#39;working_dir not found&#39;)
+        self.data_name = parameters_algo[&#39;data_name&#39;]
+        self.parameters_algo = verify_parameters_algo(parameters_algo) 
+        # if no data_path is given, use the default path
+        if &#39;data_path&#39; in parameters_algo: 
+            self.data,self.angles,self.psf = automatic_load_data(self.data_name,channel=self.parameters_algo[&#39;channel&#39;],quick_look=0,crop=self.parameters_algo[&#39;crop&#39;],dir=parameters_algo[&#39;data_path&#39;])
+        else:
+            self.data,self.angles,self.psf = automatic_load_data(self.data_name,channel=self.parameters_algo[&#39;channel&#39;],quick_look=0,crop=self.parameters_algo[&#39;crop&#39;])
+        #check if there is any synthetic data to add (only used to create synthetic data to test mayo)
+        try:
+            with open(self.working_dir+&#39;add_synthetic_signal.json&#39;, &#39;r&#39;) as read_file_add_synthetic_signal:
+                add_synthetic_signal = json.load(read_file_add_synthetic_signal)
+                self.data,self.synthetic_disc_planet = create_synthetic_data_with_disk_planet(self.data,self.angles,self.psf,add_synthetic_signal)
+                print(&#39;Synthetic signal added to data&#39;)
+        except FileNotFoundError:
+            pass
+        self.t,self.n,_ = self.data.shape
+        # improve this part (lines 83 -&gt; 88):
+        if &#39;center_image&#39; in parameters_algo:
+            self.center_image = tuple(parameters_algo[&#39;center_image&#39;])
+        else:
+            self.center_image = False
+        self.center_image, self.mask = get_rotation_center_and_mask(self.n,self.parameters_algo[&#39;mask_center&#39;],self.center_image)
+        self.kernel = np.fft.fft2(np.fft.fftshift(self.psf))
+        self.matrix = self.data.reshape(self.t,self.n*self.n)
+        self.run_GreeDS() # step 3 in algorithm 2 from Pairet etal 2020
+        self.xd = np.copy(self.GreeDS_frame)
+        self.residuals = np.copy(self.GreeDS_frame)
+        self.xp = np.zeros((self.n,self.n))
+        self.define_optimization_function() #dummy definition of function, redifined in child classes
+    def check_M_positive_semidefinite(self,n_tests): 
+        &#39;&#39;&#39;
+         The matrix xMx (as computed in compute_xMx) must be positive definite for PD3O from Yan 2018 to converge.
+        &#39;&#39;&#39;
+        xMx = self.compute_xMx(self.S)
+        assert(xMx &gt;= 0), &#34; xMx = &#34;+str(xMx)+&#34;, M is not positive semidefinite! Values of delta or gamma are not suitable&#34;
+        for i in range(n_tests):
+            x = [np.random.randn(*self.S[ii].shape) for ii in range(self.n_variables)]
+            xMx = self.compute_xMx(x)
+            assert(xMx &gt;= 0), &#34; xMx = &#34;+str(xMx)+&#34;, M is not positive semidefinite! Values of delta or gamma are not suitable&#34;
+        print(&#39;For all the &#39;+str(n_tests)+&#39; xMx is positive, thus M seems positive semidefinite.&#39;)
+    def compute_xMx(self,x):
+        assert(len(x) == self.n_variables), &#34;In compute_M : x does not have the right dimension&#34;
+        xMx = 0
+        for ii in range(self.n_variables):
+            xMx += np.sum(x[ii]* x[ii] - self.gamma*self.delta * x[ii]*self.L[ii](self.L_T[ii](x[ii])))
+        return xMx
+    def run_GreeDS(self,force_GreeDS=False):
+        &#39;&#39;&#39;
+        run_GreeDS(self,force_GreeDS=False)
+        
+        Wrapper around GreeDS, only run if GreeDS has not run before, then saves the results.
+        &#39;&#39;&#39;
+        is_run_GreeDS = False
+        greedy_n_iter = self.parameters_algo[&#39;greedy_n_iter&#39;]
+        n_iter_in_rank = self.parameters_algo[&#39;greedy_n_iter_in_rank&#39;]
+        r_mask_greedy =  self.parameters_algo[&#39;greedy_mask&#39;]
+        if &#34;aggressive_GreeDS&#34; in self.parameters_algo:
+            aggressive_GreeDS = self.parameters_algo[&#39;aggressive_GreeDS&#39;]
+        else:
+            aggressive_GreeDS = False
+        saving_string = &#39;GreeDS_&#39;+str(greedy_n_iter)+&#39;_&#39;+str(n_iter_in_rank)+&#39;_&#39;+str(r_mask_greedy)
+        if not force_GreeDS:
+            try:
+                iter_frames = vip.fits.open_fits(self.working_dir+saving_string+&#39;_iter_frames.fits&#39;)
+                xl = vip.fits.open_fits(self.working_dir+saving_string+&#39;_xl.fits&#39;)
+            except FileNotFoundError:
+                is_run_GreeDS = True
+        else:
+            is_run_GreeDS = True
+        if is_run_GreeDS:
+            iter_frames, xl = mayo_hci.GreeDS(self,aggressive_GreeDS=aggressive_GreeDS)
+            if not force_GreeDS: # force_GreeDS is used for bootstrap, we do not want to save the result
+                vip.fits.write_fits(self.working_dir+saving_string+&#39;_iter_frames.fits&#39;,iter_frames)
+                vip.fits.write_fits(self.working_dir+saving_string+&#39;_xl.fits&#39;,xl)
+        self.GreeDS_frame = iter_frames[-1,:,:]
+        self.xl = xl
+    def set_disk_planet_regularization(self):
+        &#39;&#39;&#39;
+         Defines the loss and regularization functions used in mayo from self.parameters_algo
+         Pairet etal 2020 shows that using the Huber Loss is better than both l1 and l2 norms
+         and should be used by default.
+        &#39;&#39;&#39;
+        self.shearletSystem = pyshearlab.SLgetShearletSystem2D(0,self.n,self.n, self.parameters_algo[&#39;scales&#39;])
+        self.Phi = lambda x: pyshearlab.SLsheardec2D(x, shearletSystem=self.shearletSystem)
+        self.Phi_T = lambda x: pyshearlab.SLshearadjoint2D(x, shearletSystem=self.shearletSystem)
+        if self.parameters_algo[&#39;conv&#39;]:
+            self.conv_op = lambda x : A(x,self.kernel)
+            self.adj_conv_op = lambda x : A_(x,self.kernel)
+        else:
+            self.conv_op = lambda x : x
+            self.adj_conv_op = lambda x : x
+        if self.parameters_algo[&#39;min_objective&#39;] == &#39;l2_min&#39;:
+            self.compute_loss = compute_l2_loss
+        elif self.parameters_algo[&#39;min_objective&#39;] == &#39;l1_min&#39;: # This is an approximation
+            self.huber_delta = 0.001
+            self.sigma_by_annulus = np.ones((self.n,self.n))
+            self.compute_loss = lambda x : compute_normalized_huber_loss(x,self.huber_delta,torch.from_numpy(self.sigma_by_annulus))
+        elif self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+            self.huber_parameters, self.sigma_by_annulus = get_huber_parameters(self)
+            self.huber_delta,_ = self.huber_parameters
+            self.compute_loss = lambda x : compute_normalized_huber_loss(x,self.huber_delta,torch.from_numpy(self.sigma_by_annulus))
+        else:
+            print(&#39;min_objective not recognized, no output produced...&#39;)
+            raise Exception
+    def define_optimization_function(self):
+        self.n_variables = 2
+        self.compute_grad = lambda: [0,0,0]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.prox_basis_disk = lambda x: soft_thresh(x, _lambda=self.regularization_disk)
+            self.prox_basis_planet = lambda x : soft_thresh(x, param=self.regularization_planet)
+        elif self.parameters_algo[&#39;regularization&#39;] == &#39;constraint&#39;:
+            self.prox_basis_disk = lambda x : frame_euclidean_proj_l1ball(x, _lambda=self.regularization_disk)
+            self.prox_basis_planet = lambda x : frame_euclidean_proj_l1ball(x, _lambda=self.regularization_planet)
+        self.L =  [lambda x : self.Phi(x), lambda x : x]
+        self.L_T =  [lambda x : self.Phi_T(x), lambda x : x]
+        self.prox_gamma_g = [positivity, positivity]
+        self.prox_delta_h_star = [lambda x : x - self.delta*(self.prox_basis_disk(x/self.delta)), 
+                                    lambda x : x - self.delta*(self.prox_basis_planet(x/self.delta))]
+    def mayonnaise_pipeline_initialisation(self,Lip):
+        if self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+            Lip *= np.max(1/self.sigma_by_annulus)
+        self.gamma = 1.3/Lip
+        self.delta = 0.9/self.gamma
+        self.norm_data = np.sqrt(np.sum(self.data**2))
+        self.X = [0,0]
+        self.S = [0, 0]
+        self.Z = [0,0]
+        self.regularization_disk = self.parameters_algo[&#39;regularization_disk&#39;]
+        self.regularization_planet = self.parameters_algo[&#39;regularization_planet&#39;]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.regularization_disk *= self.delta
+            self.regularization_planet *= self.delta
+        self.convergence = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+        self.convergence_X = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+        self.convergence_Z = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+        self.n_iter = 0
+        self.parameters_algo[&#39;stop-optim&#39;] = False
+    def set_disk_regularization_parameter(self,parameter_disk):
+        self.parameters_algo[&#39;regularization_disk&#39;] = parameter_disk
+        self.regularization_disk = self.parameters_algo[&#39;regularization_disk&#39;]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.regularization_disk *= self.gamma
+    def set_planet_regularization_parameter(self,parameter_planet):
+        self.parameters_algo[&#39;regularization_planet&#39;] = parameter_planet
+        self.regularization_planet = self.parameters_algo[&#39;regularization_planet&#39;]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.regularization_planet *= self.gamma
+    def set_regularization_parameters(self,parameter_disk,parameter_planet):
+        set_disk_regularization_parameter(self,parameter_disk)
+        set_planet_regularization_parameter(self,parameter_planet)
+    def get_rotation_and_mask_info(self):
+        &#39;&#39;&#39;
+         Returns the information about the coroagraphic mask and the center of rotation
+         used by mayo. 
+        &#39;&#39;&#39; 
+        center_coord = self.center_image
+        rotation_center_and_mask = self.mask
+        cx, cy = center_coord
+        if (cx*1.0).is_integer():
+            ind_x = int(cx)
+        else:
+            ind_x = np.array([int(cx), int(cx) + 1 ])
+        if (cy*1.0).is_integer():
+            ind_y = int(cy)
+        else:
+            ind_y = np.array([int(cy), int(cy) + 1 ])
+        print(ind_x)
+        print(ind_y)
+        rotation_center = np.zeros((self.n,self.n))
+        rotation_center[ind_x,ind_y] = 1.
+        rotation_center_and_mask = rotation_center_and_mask*1. + rotation_center
+        data_overlay_rotation_center = self.data[0,:,:]*(rotation_center+0.5)/1.5
+        return rotation_center_and_mask, data_overlay_rotation_center
+    def mayonnaise_pipeline_iteration(self):
+        &#39;&#39;&#39;
+        A single iteration of the Primal-Dual Three-Operator splitting (PD3O) algorithm
+        presented in Yan 2018, and used to solve the unmixing optimization problem of MAYO
+        If convergence or max iter is reached, self.parameters_algo[&#39;stop-optim&#39;] is set to
+        &#39;VAR_CONV&#39; or &#39;MAX_ITER&#39;
+        &#39;&#39;&#39;
+        previous_X = np.copy(self.X)
+        previous_Z = np.copy(self.Z)
+        for ii in range(self.n_variables):
+            self.X[ii] = self.prox_gamma_g[ii](self.Z[ii])
+        temp_grad = self.compute_grad()
+        grad = temp_grad[:-1]
+        self.current_smooth_loss = temp_grad[-1]
+        for ii in range(self.n_variables):
+            v_temp = self.S[ii] - self.gamma*self.delta * self.L[ii](self.L_T[ii](self.S[ii])) + self.delta*self.L[ii](2*self.X[ii] - self.Z[ii] - self.gamma*grad[ii])
+            self.S[ii] = self.prox_delta_h_star[ii](v_temp)
+        for ii in range(self.n_variables):
+            self.Z[ii] = self.X[ii] - self.gamma*grad[ii] - self.gamma*self.L_T[ii](self.S[ii])
+        self.convergence_X[self.n_iter] = 0.
+        self.convergence_Z[self.n_iter] = 0.
+        for ii in range(self.n_variables):
+            self.convergence_X[self.n_iter] += np.sum( (previous_X[ii] - self.X[ii])**2 )
+            self.convergence_Z[self.n_iter] += np.sum( (previous_Z[ii] - self.Z[ii])**2 )
+        self.convergence[self.n_iter] = np.sqrt(self.convergence_X[self.n_iter] + self.convergence_Z[self.n_iter] )/self.norm_data/self.gamma
+        del previous_X, previous_Z
+        self.n_iter += 1
+        print(&#39;\r at iteration &#39;+str(self.n_iter)+&#39;, convergence is {:.5e}&#39;.format(self.convergence[self.n_iter-1]), end=&#39;&#39;)
+        if self.convergence[self.n_iter-1] &lt; self.parameters_algo[&#39;tol&#39;]:
+            self.parameters_algo[&#39;stop-optim&#39;] = &#39;VAR_CONV&#39;
+        if self.n_iter &gt;= self.parameters_algo[&#39;max_iter&#39;]:
+            self.parameters_algo[&#39;stop-optim&#39;] = &#39;MAX_ITER&#39;
+    def solve_optim(self):
+        &#39;&#39;&#39;
+        Solve optimization problem from Pairet etal. 2020, by calling mayonnaise_pipeline_iteration
+        until self.parameters_algo[&#39;stop-optim&#39;] is True 
+        &#39;&#39;&#39;
+        while not self.parameters_algo[&#39;stop-optim&#39;]:
+            self.mayonnaise_pipeline_iteration()
+        print(&#39;Done with optimization&#39;)
+
+
+
+class all_ADI_sequence_mayonnaise_pipeline(mayonnaise_pipeline):
+    &#39;&#39;&#39;
+    Main instance of MAYO, solves optimization problem 27 from Pairet etal 2020
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        super(all_ADI_sequence_mayonnaise_pipeline, self).__init__(working_dir)
+        self.set_disk_planet_regularization()
+        self.mayonnaise_pipeline_initialisation()
+        self.define_optimization_function()
+    def mayonnaise_pipeline_initialisation(self):
+        Lip = self.t
+        super(all_ADI_sequence_mayonnaise_pipeline, self).mayonnaise_pipeline_initialisation(Lip)
+        self.U_L0,_,_ = randomized_svd(self.xl.reshape(self.t,self.n*self.n), n_components=self.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+        Low_rank_xl = (self.U_L0 @ self.U_L0.T @ self.xl.reshape(self.t,self.n*self.n) ).reshape(self.t,self.n,self.n)
+        self.S_der = mayo_hci.cube_rotate_kornia(self.data - Low_rank_xl,-self.angles,self.center_image)
+        self.xd = np.median(self.S_der,axis=0)*self.mask
+        self.xd *= self.xd&gt;0
+        self.xp = np.zeros((self.n,self.n))
+        self.X = [self.xd, self.xp, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.S = [self.L[0](self.xd),self.L[1](self.xp),self.L[2](Low_rank_xl.reshape(self.t,self.n*self.n))]
+        self.Z = [self.xd,self.xp, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.norm_data = np.sqrt(np.sum(self.data**2))
+    def define_optimization_function(self):
+        super(all_ADI_sequence_mayonnaise_pipeline, self).define_optimization_function()
+        self.n_variables = 3
+        self.compute_grad = lambda : compute_cube_frame_conv_grad_pytorch(self.X[0],self.X[1],self.X[2],matrix=self.matrix,angles=self.angles,
+                                                    compute_loss=self.compute_loss,
+                                                    kernel=self.kernel,
+                                                    mask=self.mask,
+                                                    center_image=self.center_image)
+        self.proj_L_constraint = lambda x :self.U_L0 @ self.U_L0.T @ x
+        self.noisy_disk_planet = self.GreeDS_frame
+        self.L =  [lambda x : self.Phi(x), lambda x : x, lambda x : x]
+        self.L_T =  [lambda x : self.Phi_T(x), lambda x : x, lambda x : x]
+        self.prox_gamma_g = [positivity, positivity, positivity]
+        self.prox_delta_h_star = [lambda x : x - self.delta*(self.prox_basis_disk(x/self.delta)), 
+                                    lambda x : x - self.delta*(self.prox_basis_planet(x/self.delta)),
+                                    lambda x : x - self.delta*(self.proj_L_constraint(x/self.delta))]
+        self.noisy_disk_planet = self.GreeDS_frame
+        self.compute_MCA_grad = lambda : grad_MCA_pytorch(self.X[0],self.X[1],noisy_disk_planet=self.noisy_disk_planet, 
+                                                compute_loss=self.compute_loss,
+                                                conv_op = self.conv_op, adj_conv_op=self.adj_conv_op,
+                                                mask=self.mask)
+    def internal_MCA_mayonnaise_pipeline_iteration(self,n_iter_mca):
+        &#39;&#39;&#39;
+        Performs internal MCA iteration (as problem D2 from Pairet etal 2020) from current 
+        noisy_disk_planet. 
+        This is an heuristic based on the observation that the Lipschitz constant of the loss
+        function in prob. 27 from Pairet etal 2020 scales as t (the number of frames). By computing
+        some internal MCA iterations in between regular iterations (mayonnaise_pipeline_iteration),
+        we can get some deconvolution and unmixing of disk and planets at a faster rate (smaller Lipschitz constant).
+        Beware, there is no theoretical justification for this, this should be seen as an heuristic to
+        find a starting point that is closer to the solution of Problem 27 from Pairet etal 2020.
+        &#39;&#39;&#39;
+        self.noisy_disk_planet = np.median(vip.preproc.cube_derotate(self.data - self.X[2].reshape(self.t,self.n,self.n),self.angles),axis=0)
+        gamma_MCA = 1.
+        if self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+            gamma_MCA /= np.max(1/self.sigma_by_annulus)
+        delta_MCA = 0.9/gamma_MCA
+        for k in range(n_iter_mca):
+            previous_X = np.copy(self.X)
+            previous_Z = np.copy(self.Z)
+            print(&#39;\r at iteration &#39;+str(self.n_iter)+&#39;, convergence is {:.5e}&#39;.format(self.convergence[self.n_iter-1]) +&#39;, performing &#39; +str(k+1) + &#39;/&#39;+str(n_iter_mca)+&#39; iterations of MCA.&#39;, end=&#39;&#39;)
+            for ii in range(self.n_variables-1):
+                self.X[ii] = self.prox_gamma_g[ii](self.Z[ii])
+            temp_grad = self.compute_MCA_grad()
+            grad = temp_grad[:-1]
+            self.current_smooth_loss = temp_grad[-1]
+            for ii in range(self.n_variables-1):
+                v_temp = self.S[ii] - gamma_MCA*delta_MCA * self.L[ii](self.L_T[ii](self.S[ii])) + delta_MCA*self.L[ii](2*self.X[ii] - self.Z[ii] - gamma_MCA*grad[ii])
+                self.S[ii] = self.prox_delta_h_star[ii](v_temp)
+            for ii in range(self.n_variables-1):
+                self.Z[ii] = self.X[ii] - gamma_MCA*grad[ii] - gamma_MCA*self.L_T[ii](self.S[ii])
+
+
+
+class all_ADI_sequence_mayonnaise_pipeline_no_regul(mayonnaise_pipeline):
+    &#39;&#39;&#39;
+     Non-regularized version of MAYO, solves optimization problem D1 from Pairet etal 2020
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).__init__(working_dir)
+        self.set_disk_planet_regularization()
+        self.mayonnaise_pipeline_initialisation()
+        self.define_optimization_function()
+        self.delta = 1
+    def mayonnaise_pipeline_initialisation(self):
+        Lip = self.t
+        super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).mayonnaise_pipeline_initialisation(Lip)
+        self.U_L0,_,_ = randomized_svd(self.xl.reshape(self.t,self.n*self.n), n_components=self.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+        Low_rank_xl = (self.U_L0 @ self.U_L0.T @ self.xl.reshape(self.t,self.n*self.n) ).reshape(self.t,self.n,self.n)
+        self.X = [self.xd, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.S = [self.L[0](self.xd), self.L[1](Low_rank_xl.reshape(self.t,self.n*self.n))]
+        self.Z = [self.xd, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.norm_data = np.sqrt(np.sum(self.data**2))
+    def define_optimization_function(self):
+        super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).define_optimization_function()
+        self.n_variables = 2
+        self.compute_grad = lambda : compute_cube_frame_grad_pytorch_no_regul(self.X[0],self.X[1],matrix=self.matrix,angles=self.angles,
+                                                                compute_loss=self.compute_loss,
+                                                                mask=self.mask,
+                                                                center_image=self.center_image)
+        self.proj_L_constraint = lambda x :self.U_L0 @ self.U_L0.T @ x
+        self.noisy_disk_planet = self.GreeDS_frame
+        self.L =  [lambda x : x, lambda x : x]
+        self.L_T =  [lambda x : x, lambda x : x]
+        self.prox_gamma_g = [positivity, positivity]
+        self.prox_delta_h_star = [lambda x : x*0, 
+                                    lambda x : x - self.delta*(self.proj_L_constraint(x/self.delta))]
+        self.noisy_disk_planet = self.GreeDS_frame
+
+class mca_disk_planet_mayonnaise_pipeline(mayonnaise_pipeline):
+    &#39;&#39;&#39;
+    Only MCA version of MAYO, solves optimization problem D2 from Pairet etal 2020
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        super(mca_disk_planet_mayonnaise_pipeline, self).__init__(working_dir)
+        #self.GreeDS_frame = np.zeros((self.n,self.n))
+        self.set_disk_planet_regularization()
+        self.mayonnaise_pipeline_initialisation()
+        self.define_optimization_function()
+        self.frame_data = np.copy(self.GreeDS_frame)
+    def mayonnaise_pipeline_initialisation(self):
+        Lip = 1.
+        super(mca_disk_planet_mayonnaise_pipeline, self).mayonnaise_pipeline_initialisation(Lip)
+        self.norm_data = np.sqrt(np.sum(self.GreeDS_frame**2))
+        self.X = [self.xd,self.xp]
+        self.S = [self.L[0](self.xd),self.L[1](self.xp)]
+        self.Z = [self.xd,self.xp]
+    def define_optimization_function(self):
+        super(mca_disk_planet_mayonnaise_pipeline, self).define_optimization_function()
+        self.n_variables = 2
+        self.compute_grad = lambda : grad_MCA_pytorch(self.X[0],self.X[1],noisy_disk_planet=self.frame_data, 
+                                                compute_loss=self.compute_loss,
+                                                conv_op = self.conv_op, adj_conv_op=self.adj_conv_op,
+                                                mask=self.mask)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="mayo_hci.mayonnaise.verify_parameters_algo"><code class="name flex">
+<span>def <span class="ident">verify_parameters_algo</span></span>(<span>parameters_algo)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def verify_parameters_algo(parameters_algo):
+    assert (&#39;min_objective&#39; in parameters_algo), &#34;KeyError: no min_objective specified, no output produced...&#34;
+    assert (&#39;rank&#39; in parameters_algo), &#34;KeyError: no rank specified, no output produced...&#34;
+    assert (&#39;regularization_disk&#39; in parameters_algo), &#34;KeyError: no regularization_disk specified, no output produced...&#34;
+    assert (&#39;regularization_planet&#39; in parameters_algo), &#34;KeyError: no raregularization_planettio_d_and_p specified, no output produced...&#34;
+    assert (&#39;tol&#39; in parameters_algo), &#34;KeyError: no tol specified, no output produced...&#34;
+    assert (&#39;max_iter&#39; in parameters_algo), &#34;KeyError: no max_iter specified, no output produced...&#34;
+    assert (&#39;regularization&#39; in parameters_algo), &#34;KeyError: no regularization specified, no output produced...&#34;
+    assert (&#39;greedy_n_iter&#39; in parameters_algo), &#34;KeyError: no greedy_n_iter, no output produced...&#34;
+    assert (&#39;greedy_n_iter_in_rank&#39; in parameters_algo), &#34;KeyError: no greedy_n_iter_in_rank, , no output produced...&#34;
+    assert (&#39;greedy_mask&#39; in parameters_algo), &#34;KeyError: no greedy_mask, , no output produced...&#34;
+    assert (&#39;conv&#39; in parameters_algo), &#34;KeyError: no conv, , no output produced...&#34;
+    try:
+        parameters_algo[&#39;mask_center&#39;]
+    except KeyError:
+        parameters_algo[&#39;mask_center&#39;] = 0
+    assert (&#39;scales&#39; in parameters_algo), &#34;KeyError: no scales, required for shearlets regularization, no output produced...&#34;
+    #if parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+    #    assert (&#39;huber_param&#39; in parameters_algo), &#34;KeyError: no huber_param, required for huber_loss, no output produced...&#34;
+    return parameters_algo</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline"><code class="flex name class">
+<span>class <span class="ident">all_ADI_sequence_mayonnaise_pipeline</span></span>
+<span>(</span><span>working_dir)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Main instance of MAYO, solves optimization problem 27 from Pairet etal 2020</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class all_ADI_sequence_mayonnaise_pipeline(mayonnaise_pipeline):
+    &#39;&#39;&#39;
+    Main instance of MAYO, solves optimization problem 27 from Pairet etal 2020
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        super(all_ADI_sequence_mayonnaise_pipeline, self).__init__(working_dir)
+        self.set_disk_planet_regularization()
+        self.mayonnaise_pipeline_initialisation()
+        self.define_optimization_function()
+    def mayonnaise_pipeline_initialisation(self):
+        Lip = self.t
+        super(all_ADI_sequence_mayonnaise_pipeline, self).mayonnaise_pipeline_initialisation(Lip)
+        self.U_L0,_,_ = randomized_svd(self.xl.reshape(self.t,self.n*self.n), n_components=self.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+        Low_rank_xl = (self.U_L0 @ self.U_L0.T @ self.xl.reshape(self.t,self.n*self.n) ).reshape(self.t,self.n,self.n)
+        self.S_der = mayo_hci.cube_rotate_kornia(self.data - Low_rank_xl,-self.angles,self.center_image)
+        self.xd = np.median(self.S_der,axis=0)*self.mask
+        self.xd *= self.xd&gt;0
+        self.xp = np.zeros((self.n,self.n))
+        self.X = [self.xd, self.xp, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.S = [self.L[0](self.xd),self.L[1](self.xp),self.L[2](Low_rank_xl.reshape(self.t,self.n*self.n))]
+        self.Z = [self.xd,self.xp, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.norm_data = np.sqrt(np.sum(self.data**2))
+    def define_optimization_function(self):
+        super(all_ADI_sequence_mayonnaise_pipeline, self).define_optimization_function()
+        self.n_variables = 3
+        self.compute_grad = lambda : compute_cube_frame_conv_grad_pytorch(self.X[0],self.X[1],self.X[2],matrix=self.matrix,angles=self.angles,
+                                                    compute_loss=self.compute_loss,
+                                                    kernel=self.kernel,
+                                                    mask=self.mask,
+                                                    center_image=self.center_image)
+        self.proj_L_constraint = lambda x :self.U_L0 @ self.U_L0.T @ x
+        self.noisy_disk_planet = self.GreeDS_frame
+        self.L =  [lambda x : self.Phi(x), lambda x : x, lambda x : x]
+        self.L_T =  [lambda x : self.Phi_T(x), lambda x : x, lambda x : x]
+        self.prox_gamma_g = [positivity, positivity, positivity]
+        self.prox_delta_h_star = [lambda x : x - self.delta*(self.prox_basis_disk(x/self.delta)), 
+                                    lambda x : x - self.delta*(self.prox_basis_planet(x/self.delta)),
+                                    lambda x : x - self.delta*(self.proj_L_constraint(x/self.delta))]
+        self.noisy_disk_planet = self.GreeDS_frame
+        self.compute_MCA_grad = lambda : grad_MCA_pytorch(self.X[0],self.X[1],noisy_disk_planet=self.noisy_disk_planet, 
+                                                compute_loss=self.compute_loss,
+                                                conv_op = self.conv_op, adj_conv_op=self.adj_conv_op,
+                                                mask=self.mask)
+    def internal_MCA_mayonnaise_pipeline_iteration(self,n_iter_mca):
+        &#39;&#39;&#39;
+        Performs internal MCA iteration (as problem D2 from Pairet etal 2020) from current 
+        noisy_disk_planet. 
+        This is an heuristic based on the observation that the Lipschitz constant of the loss
+        function in prob. 27 from Pairet etal 2020 scales as t (the number of frames). By computing
+        some internal MCA iterations in between regular iterations (mayonnaise_pipeline_iteration),
+        we can get some deconvolution and unmixing of disk and planets at a faster rate (smaller Lipschitz constant).
+        Beware, there is no theoretical justification for this, this should be seen as an heuristic to
+        find a starting point that is closer to the solution of Problem 27 from Pairet etal 2020.
+        &#39;&#39;&#39;
+        self.noisy_disk_planet = np.median(vip.preproc.cube_derotate(self.data - self.X[2].reshape(self.t,self.n,self.n),self.angles),axis=0)
+        gamma_MCA = 1.
+        if self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+            gamma_MCA /= np.max(1/self.sigma_by_annulus)
+        delta_MCA = 0.9/gamma_MCA
+        for k in range(n_iter_mca):
+            previous_X = np.copy(self.X)
+            previous_Z = np.copy(self.Z)
+            print(&#39;\r at iteration &#39;+str(self.n_iter)+&#39;, convergence is {:.5e}&#39;.format(self.convergence[self.n_iter-1]) +&#39;, performing &#39; +str(k+1) + &#39;/&#39;+str(n_iter_mca)+&#39; iterations of MCA.&#39;, end=&#39;&#39;)
+            for ii in range(self.n_variables-1):
+                self.X[ii] = self.prox_gamma_g[ii](self.Z[ii])
+            temp_grad = self.compute_MCA_grad()
+            grad = temp_grad[:-1]
+            self.current_smooth_loss = temp_grad[-1]
+            for ii in range(self.n_variables-1):
+                v_temp = self.S[ii] - gamma_MCA*delta_MCA * self.L[ii](self.L_T[ii](self.S[ii])) + delta_MCA*self.L[ii](2*self.X[ii] - self.Z[ii] - gamma_MCA*grad[ii])
+                self.S[ii] = self.prox_delta_h_star[ii](v_temp)
+            for ii in range(self.n_variables-1):
+                self.Z[ii] = self.X[ii] - gamma_MCA*grad[ii] - gamma_MCA*self.L_T[ii](self.S[ii])</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.define_optimization_function"><code class="name flex">
+<span>def <span class="ident">define_optimization_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_optimization_function(self):
+    super(all_ADI_sequence_mayonnaise_pipeline, self).define_optimization_function()
+    self.n_variables = 3
+    self.compute_grad = lambda : compute_cube_frame_conv_grad_pytorch(self.X[0],self.X[1],self.X[2],matrix=self.matrix,angles=self.angles,
+                                                compute_loss=self.compute_loss,
+                                                kernel=self.kernel,
+                                                mask=self.mask,
+                                                center_image=self.center_image)
+    self.proj_L_constraint = lambda x :self.U_L0 @ self.U_L0.T @ x
+    self.noisy_disk_planet = self.GreeDS_frame
+    self.L =  [lambda x : self.Phi(x), lambda x : x, lambda x : x]
+    self.L_T =  [lambda x : self.Phi_T(x), lambda x : x, lambda x : x]
+    self.prox_gamma_g = [positivity, positivity, positivity]
+    self.prox_delta_h_star = [lambda x : x - self.delta*(self.prox_basis_disk(x/self.delta)), 
+                                lambda x : x - self.delta*(self.prox_basis_planet(x/self.delta)),
+                                lambda x : x - self.delta*(self.proj_L_constraint(x/self.delta))]
+    self.noisy_disk_planet = self.GreeDS_frame
+    self.compute_MCA_grad = lambda : grad_MCA_pytorch(self.X[0],self.X[1],noisy_disk_planet=self.noisy_disk_planet, 
+                                            compute_loss=self.compute_loss,
+                                            conv_op = self.conv_op, adj_conv_op=self.adj_conv_op,
+                                            mask=self.mask)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.internal_MCA_mayonnaise_pipeline_iteration"><code class="name flex">
+<span>def <span class="ident">internal_MCA_mayonnaise_pipeline_iteration</span></span>(<span>self, n_iter_mca)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs internal MCA iteration (as problem D2 from Pairet etal 2020) from current
+noisy_disk_planet.
+This is an heuristic based on the observation that the Lipschitz constant of the loss
+function in prob. 27 from Pairet etal 2020 scales as t (the number of frames). By computing
+some internal MCA iterations in between regular iterations (mayonnaise_pipeline_iteration),
+we can get some deconvolution and unmixing of disk and planets at a faster rate (smaller Lipschitz constant).
+Beware, there is no theoretical justification for this, this should be seen as an heuristic to
+find a starting point that is closer to the solution of Problem 27 from Pairet etal 2020.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def internal_MCA_mayonnaise_pipeline_iteration(self,n_iter_mca):
+    &#39;&#39;&#39;
+    Performs internal MCA iteration (as problem D2 from Pairet etal 2020) from current 
+    noisy_disk_planet. 
+    This is an heuristic based on the observation that the Lipschitz constant of the loss
+    function in prob. 27 from Pairet etal 2020 scales as t (the number of frames). By computing
+    some internal MCA iterations in between regular iterations (mayonnaise_pipeline_iteration),
+    we can get some deconvolution and unmixing of disk and planets at a faster rate (smaller Lipschitz constant).
+    Beware, there is no theoretical justification for this, this should be seen as an heuristic to
+    find a starting point that is closer to the solution of Problem 27 from Pairet etal 2020.
+    &#39;&#39;&#39;
+    self.noisy_disk_planet = np.median(vip.preproc.cube_derotate(self.data - self.X[2].reshape(self.t,self.n,self.n),self.angles),axis=0)
+    gamma_MCA = 1.
+    if self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+        gamma_MCA /= np.max(1/self.sigma_by_annulus)
+    delta_MCA = 0.9/gamma_MCA
+    for k in range(n_iter_mca):
+        previous_X = np.copy(self.X)
+        previous_Z = np.copy(self.Z)
+        print(&#39;\r at iteration &#39;+str(self.n_iter)+&#39;, convergence is {:.5e}&#39;.format(self.convergence[self.n_iter-1]) +&#39;, performing &#39; +str(k+1) + &#39;/&#39;+str(n_iter_mca)+&#39; iterations of MCA.&#39;, end=&#39;&#39;)
+        for ii in range(self.n_variables-1):
+            self.X[ii] = self.prox_gamma_g[ii](self.Z[ii])
+        temp_grad = self.compute_MCA_grad()
+        grad = temp_grad[:-1]
+        self.current_smooth_loss = temp_grad[-1]
+        for ii in range(self.n_variables-1):
+            v_temp = self.S[ii] - gamma_MCA*delta_MCA * self.L[ii](self.L_T[ii](self.S[ii])) + delta_MCA*self.L[ii](2*self.X[ii] - self.Z[ii] - gamma_MCA*grad[ii])
+            self.S[ii] = self.prox_delta_h_star[ii](v_temp)
+        for ii in range(self.n_variables-1):
+            self.Z[ii] = self.X[ii] - gamma_MCA*grad[ii] - gamma_MCA*self.L_T[ii](self.S[ii])</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.mayonnaise_pipeline_initialisation"><code class="name flex">
+<span>def <span class="ident">mayonnaise_pipeline_initialisation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mayonnaise_pipeline_initialisation(self):
+    Lip = self.t
+    super(all_ADI_sequence_mayonnaise_pipeline, self).mayonnaise_pipeline_initialisation(Lip)
+    self.U_L0,_,_ = randomized_svd(self.xl.reshape(self.t,self.n*self.n), n_components=self.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+    Low_rank_xl = (self.U_L0 @ self.U_L0.T @ self.xl.reshape(self.t,self.n*self.n) ).reshape(self.t,self.n,self.n)
+    self.S_der = mayo_hci.cube_rotate_kornia(self.data - Low_rank_xl,-self.angles,self.center_image)
+    self.xd = np.median(self.S_der,axis=0)*self.mask
+    self.xd *= self.xd&gt;0
+    self.xp = np.zeros((self.n,self.n))
+    self.X = [self.xd, self.xp, Low_rank_xl.reshape(self.t,self.n*self.n)]
+    self.S = [self.L[0](self.xd),self.L[1](self.xp),self.L[2](Low_rank_xl.reshape(self.t,self.n*self.n))]
+    self.Z = [self.xd,self.xp, Low_rank_xl.reshape(self.t,self.n*self.n)]
+    self.norm_data = np.sqrt(np.sum(self.data**2))</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite">check_M_positive_semidefinite</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info">get_rotation_and_mask_info</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration">mayonnaise_pipeline_iteration</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS">run_GreeDS</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization">set_disk_planet_regularization</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim">solve_optim</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul"><code class="flex name class">
+<span>class <span class="ident">all_ADI_sequence_mayonnaise_pipeline_no_regul</span></span>
+<span>(</span><span>working_dir)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Non-regularized version of MAYO, solves optimization problem D1 from Pairet etal 2020</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class all_ADI_sequence_mayonnaise_pipeline_no_regul(mayonnaise_pipeline):
+    &#39;&#39;&#39;
+     Non-regularized version of MAYO, solves optimization problem D1 from Pairet etal 2020
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).__init__(working_dir)
+        self.set_disk_planet_regularization()
+        self.mayonnaise_pipeline_initialisation()
+        self.define_optimization_function()
+        self.delta = 1
+    def mayonnaise_pipeline_initialisation(self):
+        Lip = self.t
+        super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).mayonnaise_pipeline_initialisation(Lip)
+        self.U_L0,_,_ = randomized_svd(self.xl.reshape(self.t,self.n*self.n), n_components=self.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+        Low_rank_xl = (self.U_L0 @ self.U_L0.T @ self.xl.reshape(self.t,self.n*self.n) ).reshape(self.t,self.n,self.n)
+        self.X = [self.xd, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.S = [self.L[0](self.xd), self.L[1](Low_rank_xl.reshape(self.t,self.n*self.n))]
+        self.Z = [self.xd, Low_rank_xl.reshape(self.t,self.n*self.n)]
+        self.norm_data = np.sqrt(np.sum(self.data**2))
+    def define_optimization_function(self):
+        super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).define_optimization_function()
+        self.n_variables = 2
+        self.compute_grad = lambda : compute_cube_frame_grad_pytorch_no_regul(self.X[0],self.X[1],matrix=self.matrix,angles=self.angles,
+                                                                compute_loss=self.compute_loss,
+                                                                mask=self.mask,
+                                                                center_image=self.center_image)
+        self.proj_L_constraint = lambda x :self.U_L0 @ self.U_L0.T @ x
+        self.noisy_disk_planet = self.GreeDS_frame
+        self.L =  [lambda x : x, lambda x : x]
+        self.L_T =  [lambda x : x, lambda x : x]
+        self.prox_gamma_g = [positivity, positivity]
+        self.prox_delta_h_star = [lambda x : x*0, 
+                                    lambda x : x - self.delta*(self.proj_L_constraint(x/self.delta))]
+        self.noisy_disk_planet = self.GreeDS_frame</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul.define_optimization_function"><code class="name flex">
+<span>def <span class="ident">define_optimization_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_optimization_function(self):
+    super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).define_optimization_function()
+    self.n_variables = 2
+    self.compute_grad = lambda : compute_cube_frame_grad_pytorch_no_regul(self.X[0],self.X[1],matrix=self.matrix,angles=self.angles,
+                                                            compute_loss=self.compute_loss,
+                                                            mask=self.mask,
+                                                            center_image=self.center_image)
+    self.proj_L_constraint = lambda x :self.U_L0 @ self.U_L0.T @ x
+    self.noisy_disk_planet = self.GreeDS_frame
+    self.L =  [lambda x : x, lambda x : x]
+    self.L_T =  [lambda x : x, lambda x : x]
+    self.prox_gamma_g = [positivity, positivity]
+    self.prox_delta_h_star = [lambda x : x*0, 
+                                lambda x : x - self.delta*(self.proj_L_constraint(x/self.delta))]
+    self.noisy_disk_planet = self.GreeDS_frame</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul.mayonnaise_pipeline_initialisation"><code class="name flex">
+<span>def <span class="ident">mayonnaise_pipeline_initialisation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mayonnaise_pipeline_initialisation(self):
+    Lip = self.t
+    super(all_ADI_sequence_mayonnaise_pipeline_no_regul, self).mayonnaise_pipeline_initialisation(Lip)
+    self.U_L0,_,_ = randomized_svd(self.xl.reshape(self.t,self.n*self.n), n_components=self.parameters_algo[&#39;rank&#39;], n_iter=5,transpose=&#39;auto&#39;)
+    Low_rank_xl = (self.U_L0 @ self.U_L0.T @ self.xl.reshape(self.t,self.n*self.n) ).reshape(self.t,self.n,self.n)
+    self.X = [self.xd, Low_rank_xl.reshape(self.t,self.n*self.n)]
+    self.S = [self.L[0](self.xd), self.L[1](Low_rank_xl.reshape(self.t,self.n*self.n))]
+    self.Z = [self.xd, Low_rank_xl.reshape(self.t,self.n*self.n)]
+    self.norm_data = np.sqrt(np.sum(self.data**2))</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite">check_M_positive_semidefinite</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info">get_rotation_and_mask_info</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration">mayonnaise_pipeline_iteration</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS">run_GreeDS</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization">set_disk_planet_regularization</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim">solve_optim</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline"><code class="flex name class">
+<span>class <span class="ident">mayonnaise_pipeline</span></span>
+<span>(</span><span>working_dir)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialize MAYO from the file parameters_algo.json in working_dir
+Performs operations 1 to 6 of the MAYO pipeline (Algorithm 2 in Pairet etal 2020)
+Differnt Child classes will solve either problem 27, D1 or D2 from Pairet etal 2020.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>working_dir</code></strong> :&ensp;<code>str</code></dt>
+<dd>working directory, containing the parameters_algo.json file and the add_synthetic_signal.json
+when mayo runs on synthetic data</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class mayonnaise_pipeline(object):
+    &#39;&#39;&#39;
+    Initialize MAYO from the file parameters_algo.json in working_dir
+    Performs operations 1 to 6 of the MAYO pipeline (Algorithm 2 in Pairet etal 2020)
+    Differnt Child classes will solve either problem 27, D1 or D2 from Pairet etal 2020. 
+    Parameters
+    ----------
+    working_dir : str
+        working directory, containing the parameters_algo.json file and the add_synthetic_signal.json 
+        when mayo runs on synthetic data
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        self.working_dir = working_dir
+        try:
+            with open(self.working_dir+&#39;parameters_algo.json&#39;, &#39;r&#39;) as read_file_parameters_algo:
+                parameters_algo = json.load(read_file_parameters_algo)
+        except FileNotFoundError:
+            print(&#39;working_dir not found&#39;)
+        self.data_name = parameters_algo[&#39;data_name&#39;]
+        self.parameters_algo = verify_parameters_algo(parameters_algo) 
+        # if no data_path is given, use the default path
+        if &#39;data_path&#39; in parameters_algo: 
+            self.data,self.angles,self.psf = automatic_load_data(self.data_name,channel=self.parameters_algo[&#39;channel&#39;],quick_look=0,crop=self.parameters_algo[&#39;crop&#39;],dir=parameters_algo[&#39;data_path&#39;])
+        else:
+            self.data,self.angles,self.psf = automatic_load_data(self.data_name,channel=self.parameters_algo[&#39;channel&#39;],quick_look=0,crop=self.parameters_algo[&#39;crop&#39;])
+        #check if there is any synthetic data to add (only used to create synthetic data to test mayo)
+        try:
+            with open(self.working_dir+&#39;add_synthetic_signal.json&#39;, &#39;r&#39;) as read_file_add_synthetic_signal:
+                add_synthetic_signal = json.load(read_file_add_synthetic_signal)
+                self.data,self.synthetic_disc_planet = create_synthetic_data_with_disk_planet(self.data,self.angles,self.psf,add_synthetic_signal)
+                print(&#39;Synthetic signal added to data&#39;)
+        except FileNotFoundError:
+            pass
+        self.t,self.n,_ = self.data.shape
+        # improve this part (lines 83 -&gt; 88):
+        if &#39;center_image&#39; in parameters_algo:
+            self.center_image = tuple(parameters_algo[&#39;center_image&#39;])
+        else:
+            self.center_image = False
+        self.center_image, self.mask = get_rotation_center_and_mask(self.n,self.parameters_algo[&#39;mask_center&#39;],self.center_image)
+        self.kernel = np.fft.fft2(np.fft.fftshift(self.psf))
+        self.matrix = self.data.reshape(self.t,self.n*self.n)
+        self.run_GreeDS() # step 3 in algorithm 2 from Pairet etal 2020
+        self.xd = np.copy(self.GreeDS_frame)
+        self.residuals = np.copy(self.GreeDS_frame)
+        self.xp = np.zeros((self.n,self.n))
+        self.define_optimization_function() #dummy definition of function, redifined in child classes
+    def check_M_positive_semidefinite(self,n_tests): 
+        &#39;&#39;&#39;
+         The matrix xMx (as computed in compute_xMx) must be positive definite for PD3O from Yan 2018 to converge.
+        &#39;&#39;&#39;
+        xMx = self.compute_xMx(self.S)
+        assert(xMx &gt;= 0), &#34; xMx = &#34;+str(xMx)+&#34;, M is not positive semidefinite! Values of delta or gamma are not suitable&#34;
+        for i in range(n_tests):
+            x = [np.random.randn(*self.S[ii].shape) for ii in range(self.n_variables)]
+            xMx = self.compute_xMx(x)
+            assert(xMx &gt;= 0), &#34; xMx = &#34;+str(xMx)+&#34;, M is not positive semidefinite! Values of delta or gamma are not suitable&#34;
+        print(&#39;For all the &#39;+str(n_tests)+&#39; xMx is positive, thus M seems positive semidefinite.&#39;)
+    def compute_xMx(self,x):
+        assert(len(x) == self.n_variables), &#34;In compute_M : x does not have the right dimension&#34;
+        xMx = 0
+        for ii in range(self.n_variables):
+            xMx += np.sum(x[ii]* x[ii] - self.gamma*self.delta * x[ii]*self.L[ii](self.L_T[ii](x[ii])))
+        return xMx
+    def run_GreeDS(self,force_GreeDS=False):
+        &#39;&#39;&#39;
+        run_GreeDS(self,force_GreeDS=False)
+        
+        Wrapper around GreeDS, only run if GreeDS has not run before, then saves the results.
+        &#39;&#39;&#39;
+        is_run_GreeDS = False
+        greedy_n_iter = self.parameters_algo[&#39;greedy_n_iter&#39;]
+        n_iter_in_rank = self.parameters_algo[&#39;greedy_n_iter_in_rank&#39;]
+        r_mask_greedy =  self.parameters_algo[&#39;greedy_mask&#39;]
+        if &#34;aggressive_GreeDS&#34; in self.parameters_algo:
+            aggressive_GreeDS = self.parameters_algo[&#39;aggressive_GreeDS&#39;]
+        else:
+            aggressive_GreeDS = False
+        saving_string = &#39;GreeDS_&#39;+str(greedy_n_iter)+&#39;_&#39;+str(n_iter_in_rank)+&#39;_&#39;+str(r_mask_greedy)
+        if not force_GreeDS:
+            try:
+                iter_frames = vip.fits.open_fits(self.working_dir+saving_string+&#39;_iter_frames.fits&#39;)
+                xl = vip.fits.open_fits(self.working_dir+saving_string+&#39;_xl.fits&#39;)
+            except FileNotFoundError:
+                is_run_GreeDS = True
+        else:
+            is_run_GreeDS = True
+        if is_run_GreeDS:
+            iter_frames, xl = mayo_hci.GreeDS(self,aggressive_GreeDS=aggressive_GreeDS)
+            if not force_GreeDS: # force_GreeDS is used for bootstrap, we do not want to save the result
+                vip.fits.write_fits(self.working_dir+saving_string+&#39;_iter_frames.fits&#39;,iter_frames)
+                vip.fits.write_fits(self.working_dir+saving_string+&#39;_xl.fits&#39;,xl)
+        self.GreeDS_frame = iter_frames[-1,:,:]
+        self.xl = xl
+    def set_disk_planet_regularization(self):
+        &#39;&#39;&#39;
+         Defines the loss and regularization functions used in mayo from self.parameters_algo
+         Pairet etal 2020 shows that using the Huber Loss is better than both l1 and l2 norms
+         and should be used by default.
+        &#39;&#39;&#39;
+        self.shearletSystem = pyshearlab.SLgetShearletSystem2D(0,self.n,self.n, self.parameters_algo[&#39;scales&#39;])
+        self.Phi = lambda x: pyshearlab.SLsheardec2D(x, shearletSystem=self.shearletSystem)
+        self.Phi_T = lambda x: pyshearlab.SLshearadjoint2D(x, shearletSystem=self.shearletSystem)
+        if self.parameters_algo[&#39;conv&#39;]:
+            self.conv_op = lambda x : A(x,self.kernel)
+            self.adj_conv_op = lambda x : A_(x,self.kernel)
+        else:
+            self.conv_op = lambda x : x
+            self.adj_conv_op = lambda x : x
+        if self.parameters_algo[&#39;min_objective&#39;] == &#39;l2_min&#39;:
+            self.compute_loss = compute_l2_loss
+        elif self.parameters_algo[&#39;min_objective&#39;] == &#39;l1_min&#39;: # This is an approximation
+            self.huber_delta = 0.001
+            self.sigma_by_annulus = np.ones((self.n,self.n))
+            self.compute_loss = lambda x : compute_normalized_huber_loss(x,self.huber_delta,torch.from_numpy(self.sigma_by_annulus))
+        elif self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+            self.huber_parameters, self.sigma_by_annulus = get_huber_parameters(self)
+            self.huber_delta,_ = self.huber_parameters
+            self.compute_loss = lambda x : compute_normalized_huber_loss(x,self.huber_delta,torch.from_numpy(self.sigma_by_annulus))
+        else:
+            print(&#39;min_objective not recognized, no output produced...&#39;)
+            raise Exception
+    def define_optimization_function(self):
+        self.n_variables = 2
+        self.compute_grad = lambda: [0,0,0]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.prox_basis_disk = lambda x: soft_thresh(x, _lambda=self.regularization_disk)
+            self.prox_basis_planet = lambda x : soft_thresh(x, param=self.regularization_planet)
+        elif self.parameters_algo[&#39;regularization&#39;] == &#39;constraint&#39;:
+            self.prox_basis_disk = lambda x : frame_euclidean_proj_l1ball(x, _lambda=self.regularization_disk)
+            self.prox_basis_planet = lambda x : frame_euclidean_proj_l1ball(x, _lambda=self.regularization_planet)
+        self.L =  [lambda x : self.Phi(x), lambda x : x]
+        self.L_T =  [lambda x : self.Phi_T(x), lambda x : x]
+        self.prox_gamma_g = [positivity, positivity]
+        self.prox_delta_h_star = [lambda x : x - self.delta*(self.prox_basis_disk(x/self.delta)), 
+                                    lambda x : x - self.delta*(self.prox_basis_planet(x/self.delta))]
+    def mayonnaise_pipeline_initialisation(self,Lip):
+        if self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+            Lip *= np.max(1/self.sigma_by_annulus)
+        self.gamma = 1.3/Lip
+        self.delta = 0.9/self.gamma
+        self.norm_data = np.sqrt(np.sum(self.data**2))
+        self.X = [0,0]
+        self.S = [0, 0]
+        self.Z = [0,0]
+        self.regularization_disk = self.parameters_algo[&#39;regularization_disk&#39;]
+        self.regularization_planet = self.parameters_algo[&#39;regularization_planet&#39;]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.regularization_disk *= self.delta
+            self.regularization_planet *= self.delta
+        self.convergence = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+        self.convergence_X = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+        self.convergence_Z = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+        self.n_iter = 0
+        self.parameters_algo[&#39;stop-optim&#39;] = False
+    def set_disk_regularization_parameter(self,parameter_disk):
+        self.parameters_algo[&#39;regularization_disk&#39;] = parameter_disk
+        self.regularization_disk = self.parameters_algo[&#39;regularization_disk&#39;]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.regularization_disk *= self.gamma
+    def set_planet_regularization_parameter(self,parameter_planet):
+        self.parameters_algo[&#39;regularization_planet&#39;] = parameter_planet
+        self.regularization_planet = self.parameters_algo[&#39;regularization_planet&#39;]
+        if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+            self.regularization_planet *= self.gamma
+    def set_regularization_parameters(self,parameter_disk,parameter_planet):
+        set_disk_regularization_parameter(self,parameter_disk)
+        set_planet_regularization_parameter(self,parameter_planet)
+    def get_rotation_and_mask_info(self):
+        &#39;&#39;&#39;
+         Returns the information about the coroagraphic mask and the center of rotation
+         used by mayo. 
+        &#39;&#39;&#39; 
+        center_coord = self.center_image
+        rotation_center_and_mask = self.mask
+        cx, cy = center_coord
+        if (cx*1.0).is_integer():
+            ind_x = int(cx)
+        else:
+            ind_x = np.array([int(cx), int(cx) + 1 ])
+        if (cy*1.0).is_integer():
+            ind_y = int(cy)
+        else:
+            ind_y = np.array([int(cy), int(cy) + 1 ])
+        print(ind_x)
+        print(ind_y)
+        rotation_center = np.zeros((self.n,self.n))
+        rotation_center[ind_x,ind_y] = 1.
+        rotation_center_and_mask = rotation_center_and_mask*1. + rotation_center
+        data_overlay_rotation_center = self.data[0,:,:]*(rotation_center+0.5)/1.5
+        return rotation_center_and_mask, data_overlay_rotation_center
+    def mayonnaise_pipeline_iteration(self):
+        &#39;&#39;&#39;
+        A single iteration of the Primal-Dual Three-Operator splitting (PD3O) algorithm
+        presented in Yan 2018, and used to solve the unmixing optimization problem of MAYO
+        If convergence or max iter is reached, self.parameters_algo[&#39;stop-optim&#39;] is set to
+        &#39;VAR_CONV&#39; or &#39;MAX_ITER&#39;
+        &#39;&#39;&#39;
+        previous_X = np.copy(self.X)
+        previous_Z = np.copy(self.Z)
+        for ii in range(self.n_variables):
+            self.X[ii] = self.prox_gamma_g[ii](self.Z[ii])
+        temp_grad = self.compute_grad()
+        grad = temp_grad[:-1]
+        self.current_smooth_loss = temp_grad[-1]
+        for ii in range(self.n_variables):
+            v_temp = self.S[ii] - self.gamma*self.delta * self.L[ii](self.L_T[ii](self.S[ii])) + self.delta*self.L[ii](2*self.X[ii] - self.Z[ii] - self.gamma*grad[ii])
+            self.S[ii] = self.prox_delta_h_star[ii](v_temp)
+        for ii in range(self.n_variables):
+            self.Z[ii] = self.X[ii] - self.gamma*grad[ii] - self.gamma*self.L_T[ii](self.S[ii])
+        self.convergence_X[self.n_iter] = 0.
+        self.convergence_Z[self.n_iter] = 0.
+        for ii in range(self.n_variables):
+            self.convergence_X[self.n_iter] += np.sum( (previous_X[ii] - self.X[ii])**2 )
+            self.convergence_Z[self.n_iter] += np.sum( (previous_Z[ii] - self.Z[ii])**2 )
+        self.convergence[self.n_iter] = np.sqrt(self.convergence_X[self.n_iter] + self.convergence_Z[self.n_iter] )/self.norm_data/self.gamma
+        del previous_X, previous_Z
+        self.n_iter += 1
+        print(&#39;\r at iteration &#39;+str(self.n_iter)+&#39;, convergence is {:.5e}&#39;.format(self.convergence[self.n_iter-1]), end=&#39;&#39;)
+        if self.convergence[self.n_iter-1] &lt; self.parameters_algo[&#39;tol&#39;]:
+            self.parameters_algo[&#39;stop-optim&#39;] = &#39;VAR_CONV&#39;
+        if self.n_iter &gt;= self.parameters_algo[&#39;max_iter&#39;]:
+            self.parameters_algo[&#39;stop-optim&#39;] = &#39;MAX_ITER&#39;
+    def solve_optim(self):
+        &#39;&#39;&#39;
+        Solve optimization problem from Pairet etal. 2020, by calling mayonnaise_pipeline_iteration
+        until self.parameters_algo[&#39;stop-optim&#39;] is True 
+        &#39;&#39;&#39;
+        while not self.parameters_algo[&#39;stop-optim&#39;]:
+            self.mayonnaise_pipeline_iteration()
+        print(&#39;Done with optimization&#39;)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline">all_ADI_sequence_mayonnaise_pipeline</a></li>
+<li><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul">all_ADI_sequence_mayonnaise_pipeline_no_regul</a></li>
+<li><a title="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline">mca_disk_planet_mayonnaise_pipeline</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite"><code class="name flex">
+<span>def <span class="ident">check_M_positive_semidefinite</span></span>(<span>self, n_tests)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The matrix xMx (as computed in compute_xMx) must be positive definite for PD3O from Yan 2018 to converge.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_M_positive_semidefinite(self,n_tests): 
+    &#39;&#39;&#39;
+     The matrix xMx (as computed in compute_xMx) must be positive definite for PD3O from Yan 2018 to converge.
+    &#39;&#39;&#39;
+    xMx = self.compute_xMx(self.S)
+    assert(xMx &gt;= 0), &#34; xMx = &#34;+str(xMx)+&#34;, M is not positive semidefinite! Values of delta or gamma are not suitable&#34;
+    for i in range(n_tests):
+        x = [np.random.randn(*self.S[ii].shape) for ii in range(self.n_variables)]
+        xMx = self.compute_xMx(x)
+        assert(xMx &gt;= 0), &#34; xMx = &#34;+str(xMx)+&#34;, M is not positive semidefinite! Values of delta or gamma are not suitable&#34;
+    print(&#39;For all the &#39;+str(n_tests)+&#39; xMx is positive, thus M seems positive semidefinite.&#39;)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.compute_xMx"><code class="name flex">
+<span>def <span class="ident">compute_xMx</span></span>(<span>self, x)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_xMx(self,x):
+    assert(len(x) == self.n_variables), &#34;In compute_M : x does not have the right dimension&#34;
+    xMx = 0
+    for ii in range(self.n_variables):
+        xMx += np.sum(x[ii]* x[ii] - self.gamma*self.delta * x[ii]*self.L[ii](self.L_T[ii](x[ii])))
+    return xMx</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.define_optimization_function"><code class="name flex">
+<span>def <span class="ident">define_optimization_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_optimization_function(self):
+    self.n_variables = 2
+    self.compute_grad = lambda: [0,0,0]
+    if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+        self.prox_basis_disk = lambda x: soft_thresh(x, _lambda=self.regularization_disk)
+        self.prox_basis_planet = lambda x : soft_thresh(x, param=self.regularization_planet)
+    elif self.parameters_algo[&#39;regularization&#39;] == &#39;constraint&#39;:
+        self.prox_basis_disk = lambda x : frame_euclidean_proj_l1ball(x, _lambda=self.regularization_disk)
+        self.prox_basis_planet = lambda x : frame_euclidean_proj_l1ball(x, _lambda=self.regularization_planet)
+    self.L =  [lambda x : self.Phi(x), lambda x : x]
+    self.L_T =  [lambda x : self.Phi_T(x), lambda x : x]
+    self.prox_gamma_g = [positivity, positivity]
+    self.prox_delta_h_star = [lambda x : x - self.delta*(self.prox_basis_disk(x/self.delta)), 
+                                lambda x : x - self.delta*(self.prox_basis_planet(x/self.delta))]</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info"><code class="name flex">
+<span>def <span class="ident">get_rotation_and_mask_info</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the information about the coroagraphic mask and the center of rotation
+used by mayo.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_rotation_and_mask_info(self):
+    &#39;&#39;&#39;
+     Returns the information about the coroagraphic mask and the center of rotation
+     used by mayo. 
+    &#39;&#39;&#39; 
+    center_coord = self.center_image
+    rotation_center_and_mask = self.mask
+    cx, cy = center_coord
+    if (cx*1.0).is_integer():
+        ind_x = int(cx)
+    else:
+        ind_x = np.array([int(cx), int(cx) + 1 ])
+    if (cy*1.0).is_integer():
+        ind_y = int(cy)
+    else:
+        ind_y = np.array([int(cy), int(cy) + 1 ])
+    print(ind_x)
+    print(ind_y)
+    rotation_center = np.zeros((self.n,self.n))
+    rotation_center[ind_x,ind_y] = 1.
+    rotation_center_and_mask = rotation_center_and_mask*1. + rotation_center
+    data_overlay_rotation_center = self.data[0,:,:]*(rotation_center+0.5)/1.5
+    return rotation_center_and_mask, data_overlay_rotation_center</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_initialisation"><code class="name flex">
+<span>def <span class="ident">mayonnaise_pipeline_initialisation</span></span>(<span>self, Lip)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mayonnaise_pipeline_initialisation(self,Lip):
+    if self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+        Lip *= np.max(1/self.sigma_by_annulus)
+    self.gamma = 1.3/Lip
+    self.delta = 0.9/self.gamma
+    self.norm_data = np.sqrt(np.sum(self.data**2))
+    self.X = [0,0]
+    self.S = [0, 0]
+    self.Z = [0,0]
+    self.regularization_disk = self.parameters_algo[&#39;regularization_disk&#39;]
+    self.regularization_planet = self.parameters_algo[&#39;regularization_planet&#39;]
+    if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+        self.regularization_disk *= self.delta
+        self.regularization_planet *= self.delta
+    self.convergence = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+    self.convergence_X = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+    self.convergence_Z = np.zeros([self.parameters_algo[&#39;max_iter&#39;]])
+    self.n_iter = 0
+    self.parameters_algo[&#39;stop-optim&#39;] = False</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration"><code class="name flex">
+<span>def <span class="ident">mayonnaise_pipeline_iteration</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A single iteration of the Primal-Dual Three-Operator splitting (PD3O) algorithm
+presented in Yan 2018, and used to solve the unmixing optimization problem of MAYO
+If convergence or max iter is reached, self.parameters_algo['stop-optim'] is set to
+'VAR_CONV' or 'MAX_ITER'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mayonnaise_pipeline_iteration(self):
+    &#39;&#39;&#39;
+    A single iteration of the Primal-Dual Three-Operator splitting (PD3O) algorithm
+    presented in Yan 2018, and used to solve the unmixing optimization problem of MAYO
+    If convergence or max iter is reached, self.parameters_algo[&#39;stop-optim&#39;] is set to
+    &#39;VAR_CONV&#39; or &#39;MAX_ITER&#39;
+    &#39;&#39;&#39;
+    previous_X = np.copy(self.X)
+    previous_Z = np.copy(self.Z)
+    for ii in range(self.n_variables):
+        self.X[ii] = self.prox_gamma_g[ii](self.Z[ii])
+    temp_grad = self.compute_grad()
+    grad = temp_grad[:-1]
+    self.current_smooth_loss = temp_grad[-1]
+    for ii in range(self.n_variables):
+        v_temp = self.S[ii] - self.gamma*self.delta * self.L[ii](self.L_T[ii](self.S[ii])) + self.delta*self.L[ii](2*self.X[ii] - self.Z[ii] - self.gamma*grad[ii])
+        self.S[ii] = self.prox_delta_h_star[ii](v_temp)
+    for ii in range(self.n_variables):
+        self.Z[ii] = self.X[ii] - self.gamma*grad[ii] - self.gamma*self.L_T[ii](self.S[ii])
+    self.convergence_X[self.n_iter] = 0.
+    self.convergence_Z[self.n_iter] = 0.
+    for ii in range(self.n_variables):
+        self.convergence_X[self.n_iter] += np.sum( (previous_X[ii] - self.X[ii])**2 )
+        self.convergence_Z[self.n_iter] += np.sum( (previous_Z[ii] - self.Z[ii])**2 )
+    self.convergence[self.n_iter] = np.sqrt(self.convergence_X[self.n_iter] + self.convergence_Z[self.n_iter] )/self.norm_data/self.gamma
+    del previous_X, previous_Z
+    self.n_iter += 1
+    print(&#39;\r at iteration &#39;+str(self.n_iter)+&#39;, convergence is {:.5e}&#39;.format(self.convergence[self.n_iter-1]), end=&#39;&#39;)
+    if self.convergence[self.n_iter-1] &lt; self.parameters_algo[&#39;tol&#39;]:
+        self.parameters_algo[&#39;stop-optim&#39;] = &#39;VAR_CONV&#39;
+    if self.n_iter &gt;= self.parameters_algo[&#39;max_iter&#39;]:
+        self.parameters_algo[&#39;stop-optim&#39;] = &#39;MAX_ITER&#39;</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS"><code class="name flex">
+<span>def <span class="ident">run_GreeDS</span></span>(<span>self, force_GreeDS=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>run_GreeDS(self,force_GreeDS=False)</p>
+<p>Wrapper around GreeDS, only run if GreeDS has not run before, then saves the results.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_GreeDS(self,force_GreeDS=False):
+    &#39;&#39;&#39;
+    run_GreeDS(self,force_GreeDS=False)
+    
+    Wrapper around GreeDS, only run if GreeDS has not run before, then saves the results.
+    &#39;&#39;&#39;
+    is_run_GreeDS = False
+    greedy_n_iter = self.parameters_algo[&#39;greedy_n_iter&#39;]
+    n_iter_in_rank = self.parameters_algo[&#39;greedy_n_iter_in_rank&#39;]
+    r_mask_greedy =  self.parameters_algo[&#39;greedy_mask&#39;]
+    if &#34;aggressive_GreeDS&#34; in self.parameters_algo:
+        aggressive_GreeDS = self.parameters_algo[&#39;aggressive_GreeDS&#39;]
+    else:
+        aggressive_GreeDS = False
+    saving_string = &#39;GreeDS_&#39;+str(greedy_n_iter)+&#39;_&#39;+str(n_iter_in_rank)+&#39;_&#39;+str(r_mask_greedy)
+    if not force_GreeDS:
+        try:
+            iter_frames = vip.fits.open_fits(self.working_dir+saving_string+&#39;_iter_frames.fits&#39;)
+            xl = vip.fits.open_fits(self.working_dir+saving_string+&#39;_xl.fits&#39;)
+        except FileNotFoundError:
+            is_run_GreeDS = True
+    else:
+        is_run_GreeDS = True
+    if is_run_GreeDS:
+        iter_frames, xl = mayo_hci.GreeDS(self,aggressive_GreeDS=aggressive_GreeDS)
+        if not force_GreeDS: # force_GreeDS is used for bootstrap, we do not want to save the result
+            vip.fits.write_fits(self.working_dir+saving_string+&#39;_iter_frames.fits&#39;,iter_frames)
+            vip.fits.write_fits(self.working_dir+saving_string+&#39;_xl.fits&#39;,xl)
+    self.GreeDS_frame = iter_frames[-1,:,:]
+    self.xl = xl</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization"><code class="name flex">
+<span>def <span class="ident">set_disk_planet_regularization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the loss and regularization functions used in mayo from self.parameters_algo
+Pairet etal 2020 shows that using the Huber Loss is better than both l1 and l2 norms
+and should be used by default.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_disk_planet_regularization(self):
+    &#39;&#39;&#39;
+     Defines the loss and regularization functions used in mayo from self.parameters_algo
+     Pairet etal 2020 shows that using the Huber Loss is better than both l1 and l2 norms
+     and should be used by default.
+    &#39;&#39;&#39;
+    self.shearletSystem = pyshearlab.SLgetShearletSystem2D(0,self.n,self.n, self.parameters_algo[&#39;scales&#39;])
+    self.Phi = lambda x: pyshearlab.SLsheardec2D(x, shearletSystem=self.shearletSystem)
+    self.Phi_T = lambda x: pyshearlab.SLshearadjoint2D(x, shearletSystem=self.shearletSystem)
+    if self.parameters_algo[&#39;conv&#39;]:
+        self.conv_op = lambda x : A(x,self.kernel)
+        self.adj_conv_op = lambda x : A_(x,self.kernel)
+    else:
+        self.conv_op = lambda x : x
+        self.adj_conv_op = lambda x : x
+    if self.parameters_algo[&#39;min_objective&#39;] == &#39;l2_min&#39;:
+        self.compute_loss = compute_l2_loss
+    elif self.parameters_algo[&#39;min_objective&#39;] == &#39;l1_min&#39;: # This is an approximation
+        self.huber_delta = 0.001
+        self.sigma_by_annulus = np.ones((self.n,self.n))
+        self.compute_loss = lambda x : compute_normalized_huber_loss(x,self.huber_delta,torch.from_numpy(self.sigma_by_annulus))
+    elif self.parameters_algo[&#39;min_objective&#39;] == &#39;huber_loss&#39;:
+        self.huber_parameters, self.sigma_by_annulus = get_huber_parameters(self)
+        self.huber_delta,_ = self.huber_parameters
+        self.compute_loss = lambda x : compute_normalized_huber_loss(x,self.huber_delta,torch.from_numpy(self.sigma_by_annulus))
+    else:
+        print(&#39;min_objective not recognized, no output produced...&#39;)
+        raise Exception</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_regularization_parameter"><code class="name flex">
+<span>def <span class="ident">set_disk_regularization_parameter</span></span>(<span>self, parameter_disk)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_disk_regularization_parameter(self,parameter_disk):
+    self.parameters_algo[&#39;regularization_disk&#39;] = parameter_disk
+    self.regularization_disk = self.parameters_algo[&#39;regularization_disk&#39;]
+    if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+        self.regularization_disk *= self.gamma</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.set_planet_regularization_parameter"><code class="name flex">
+<span>def <span class="ident">set_planet_regularization_parameter</span></span>(<span>self, parameter_planet)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_planet_regularization_parameter(self,parameter_planet):
+    self.parameters_algo[&#39;regularization_planet&#39;] = parameter_planet
+    self.regularization_planet = self.parameters_algo[&#39;regularization_planet&#39;]
+    if self.parameters_algo[&#39;regularization&#39;] == &#39;lasso&#39;:
+        self.regularization_planet *= self.gamma</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.set_regularization_parameters"><code class="name flex">
+<span>def <span class="ident">set_regularization_parameters</span></span>(<span>self, parameter_disk, parameter_planet)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_regularization_parameters(self,parameter_disk,parameter_planet):
+    set_disk_regularization_parameter(self,parameter_disk)
+    set_planet_regularization_parameter(self,parameter_planet)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim"><code class="name flex">
+<span>def <span class="ident">solve_optim</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Solve optimization problem from Pairet etal. 2020, by calling mayonnaise_pipeline_iteration
+until self.parameters_algo['stop-optim'] is True</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def solve_optim(self):
+    &#39;&#39;&#39;
+    Solve optimization problem from Pairet etal. 2020, by calling mayonnaise_pipeline_iteration
+    until self.parameters_algo[&#39;stop-optim&#39;] is True 
+    &#39;&#39;&#39;
+    while not self.parameters_algo[&#39;stop-optim&#39;]:
+        self.mayonnaise_pipeline_iteration()
+    print(&#39;Done with optimization&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline"><code class="flex name class">
+<span>class <span class="ident">mca_disk_planet_mayonnaise_pipeline</span></span>
+<span>(</span><span>working_dir)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Only MCA version of MAYO, solves optimization problem D2 from Pairet etal 2020</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class mca_disk_planet_mayonnaise_pipeline(mayonnaise_pipeline):
+    &#39;&#39;&#39;
+    Only MCA version of MAYO, solves optimization problem D2 from Pairet etal 2020
+    &#39;&#39;&#39;
+    def __init__(self,working_dir):
+        super(mca_disk_planet_mayonnaise_pipeline, self).__init__(working_dir)
+        #self.GreeDS_frame = np.zeros((self.n,self.n))
+        self.set_disk_planet_regularization()
+        self.mayonnaise_pipeline_initialisation()
+        self.define_optimization_function()
+        self.frame_data = np.copy(self.GreeDS_frame)
+    def mayonnaise_pipeline_initialisation(self):
+        Lip = 1.
+        super(mca_disk_planet_mayonnaise_pipeline, self).mayonnaise_pipeline_initialisation(Lip)
+        self.norm_data = np.sqrt(np.sum(self.GreeDS_frame**2))
+        self.X = [self.xd,self.xp]
+        self.S = [self.L[0](self.xd),self.L[1](self.xp)]
+        self.Z = [self.xd,self.xp]
+    def define_optimization_function(self):
+        super(mca_disk_planet_mayonnaise_pipeline, self).define_optimization_function()
+        self.n_variables = 2
+        self.compute_grad = lambda : grad_MCA_pytorch(self.X[0],self.X[1],noisy_disk_planet=self.frame_data, 
+                                                compute_loss=self.compute_loss,
+                                                conv_op = self.conv_op, adj_conv_op=self.adj_conv_op,
+                                                mask=self.mask)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline.define_optimization_function"><code class="name flex">
+<span>def <span class="ident">define_optimization_function</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_optimization_function(self):
+    super(mca_disk_planet_mayonnaise_pipeline, self).define_optimization_function()
+    self.n_variables = 2
+    self.compute_grad = lambda : grad_MCA_pytorch(self.X[0],self.X[1],noisy_disk_planet=self.frame_data, 
+                                            compute_loss=self.compute_loss,
+                                            conv_op = self.conv_op, adj_conv_op=self.adj_conv_op,
+                                            mask=self.mask)</code></pre>
+</details>
+</dd>
+<dt id="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline.mayonnaise_pipeline_initialisation"><code class="name flex">
+<span>def <span class="ident">mayonnaise_pipeline_initialisation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mayonnaise_pipeline_initialisation(self):
+    Lip = 1.
+    super(mca_disk_planet_mayonnaise_pipeline, self).mayonnaise_pipeline_initialisation(Lip)
+    self.norm_data = np.sqrt(np.sum(self.GreeDS_frame**2))
+    self.X = [self.xd,self.xp]
+    self.S = [self.L[0](self.xd),self.L[1](self.xp)]
+    self.Z = [self.xd,self.xp]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></b></code>:
+<ul class="hlist">
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite">check_M_positive_semidefinite</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info">get_rotation_and_mask_info</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration">mayonnaise_pipeline_iteration</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS">run_GreeDS</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization">set_disk_planet_regularization</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim">solve_optim</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="mayo_hci" href="index.html">mayo_hci</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="mayo_hci.mayonnaise.verify_parameters_algo" href="#mayo_hci.mayonnaise.verify_parameters_algo">verify_parameters_algo</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline">all_ADI_sequence_mayonnaise_pipeline</a></code></h4>
+<ul class="">
+<li><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.define_optimization_function" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.define_optimization_function">define_optimization_function</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.internal_MCA_mayonnaise_pipeline_iteration" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.internal_MCA_mayonnaise_pipeline_iteration">internal_MCA_mayonnaise_pipeline_iteration</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.mayonnaise_pipeline_initialisation" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline.mayonnaise_pipeline_initialisation">mayonnaise_pipeline_initialisation</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul">all_ADI_sequence_mayonnaise_pipeline_no_regul</a></code></h4>
+<ul class="">
+<li><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul.define_optimization_function" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul.define_optimization_function">define_optimization_function</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul.mayonnaise_pipeline_initialisation" href="#mayo_hci.mayonnaise.all_ADI_sequence_mayonnaise_pipeline_no_regul.mayonnaise_pipeline_initialisation">mayonnaise_pipeline_initialisation</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mayonnaise_pipeline">mayonnaise_pipeline</a></code></h4>
+<ul class="">
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.check_M_positive_semidefinite">check_M_positive_semidefinite</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.compute_xMx" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.compute_xMx">compute_xMx</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.define_optimization_function" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.define_optimization_function">define_optimization_function</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.get_rotation_and_mask_info">get_rotation_and_mask_info</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_initialisation" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_initialisation">mayonnaise_pipeline_initialisation</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.mayonnaise_pipeline_iteration">mayonnaise_pipeline_iteration</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.run_GreeDS">run_GreeDS</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_planet_regularization">set_disk_planet_regularization</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_regularization_parameter" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_disk_regularization_parameter">set_disk_regularization_parameter</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_planet_regularization_parameter" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_planet_regularization_parameter">set_planet_regularization_parameter</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.set_regularization_parameters" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.set_regularization_parameters">set_regularization_parameters</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim" href="#mayo_hci.mayonnaise.mayonnaise_pipeline.solve_optim">solve_optim</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline" href="#mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline">mca_disk_planet_mayonnaise_pipeline</a></code></h4>
+<ul class="">
+<li><code><a title="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline.define_optimization_function" href="#mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline.define_optimization_function">define_optimization_function</a></code></li>
+<li><code><a title="mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline.mayonnaise_pipeline_initialisation" href="#mayo_hci.mayonnaise.mca_disk_planet_mayonnaise_pipeline.mayonnaise_pipeline_initialisation">mayonnaise_pipeline_initialisation</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>mayo_hci.automatic_load_data API documentation</title>
+<meta name="description" content="automatic_load_data deals with loading ADI data" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>mayo_hci.automatic_load_data</code></h1>
+</header>
+<section id="section-intro">
+<p>automatic_load_data deals with loading ADI data</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+automatic_load_data deals with loading ADI data 
+&#39;&#39;&#39;
+
+&#39;&#39;&#39;
+ MAYO pipeline, from Pairet et al. 2020
+    Copyright (C) 2020, Benoit Pairet
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&#39;&#39;&#39;
+
+
+import vip_hci as vip
+import numpy as np
+
+import json
+import sys
+import os
+
+from utils import compute_stim_map
+from hciplot import plot_frames as plots
+
+import mayo_hci
+
+
+def automatic_load_data(data_name,channel=0,dir=&#39;default&#39;,quick_look=0,crop=0,center_im=None):
+    &#34;&#34;&#34;
+    automatic_load_data(data_name,channel=0,dir=&#39;default&#39;,RDI=False,quick_look=0,crop=0,center_im=None)
+        loads ADI datasets automatically 
+    Parameters
+    ----------
+    data_name : str
+        name of the data to use in MAYO
+    channel : int
+        channel to use if multiple channels, default is 0
+    quick_look : int
+        if larger than 0, apply PCA-SFS and STIM with quick_look number of PC&#39;s
+    crop : int
+        if crop &gt; 0, crops the ADI cube to the desired width, default is 0
+    center_im : tuple
+        (x,y), center of the frame
+
+    Returns
+    -------
+    data : numpy array
+        t x n x n ADI dataset
+    angles :  numpy array
+        list of angles
+    psf :  numpy array
+        n x n psf
+
+    if quick_look &gt;0 : 
+    frame :  numpy array
+        n x n, PCA-SFS processed frame
+    stim_frame :  numpy array
+        n x n, PCA-SFS STIM map    
+    &#34;&#34;&#34; 
+    if dir == &#39;default&#39;:
+        try:
+            with open(os.path.dirname(mayo_hci.__file__) + &#39;/data_path.json&#39;, &#39;r&#39;) as read_data_path:
+                temp = json.load(read_data_path)
+                dir = temp[&#39;default_path_to_data&#39;]
+        except FileNotFoundError:
+            dir = &#39;./&#39;
+    with open(dir+data_name+&#39;/0_import_info.json&#39;, &#39;r&#39;) as read_file_import_info:
+        import_info = json.load(read_file_import_info)
+    
+    if import_info[&#39;cube&#39;]:
+        data = vip.fits.open_fits(dir+data_name+&#39;/&#39;+import_info[&#39;cube&#39;][channel][&#39;location&#39;])
+        if len(data.shape) == 4:
+            data = data[channel,:,:,:]
+        t,n_init,_ = data.shape
+        if crop:
+            if n_init &gt; crop:
+                data = vip.preproc.cosmetics.cube_crop_frames(data, crop, xy=(n_init//2+1,n_init//2+1),force=True)
+            else:
+                print(&#39;crop is larger than initial image, no cropped performed&#39;)
+        _,n,_ = data.shape
+        print(&#39;imported cube on channel: &#39; + import_info[&#39;cube&#39;][channel][&#39;channel_name&#39;])
+    else:
+        cube = None
+        print(&#39;data entry missing in import info&#39;)
+
+    if import_info[&#39;angles&#39;]:
+        angles = vip.fits.open_fits(dir+data_name+&#39;/&#39;+import_info[&#39;angles&#39;][channel][&#39;location&#39;])
+        if len(angles.shape) == 2:
+            angles = angles[channel,:]
+        angles = angles*import_info[&#39;angles_multiply&#39;]
+        if angles.shape[0] != t:
+            print(&#39;not right numbers of angles&#39;)
+    else:
+        angles = None
+        print(&#39;angles entry missing in import info&#39;)
+
+    if import_info[&#39;psf&#39;]:
+        psf = vip.fits.open_fits(dir+data_name+&#39;/&#39;+import_info[&#39;psf&#39;][channel][&#39;location&#39;])
+        if len(psf.shape) == 4:
+            try:
+                psf = psf[channel,import_info[&#39;psf&#39;][&#39;which_psf&#39;],:,:]
+            except:
+                psf = psf[channel,0,:,:]
+        elif len(psf.shape) == 3:
+            psf = psf[channel,:,:]
+        print(psf.shape)
+        n_psf,_ = psf.shape
+        print(psf.shape)
+        psf = psf*(psf&gt;0)
+        #psf -= np.min(psf)
+        if n_psf &lt; n:
+            print(&#39;dimension of psf modified to fit data&#39;)
+            psf_width = psf.shape[0]
+            ind_inf = int(n/2-psf_width/2)
+            ind_sup = int(n/2+psf_width/2)
+            psf_full = np.zeros((n,n))
+            psf_full[ind_inf:ind_sup,ind_inf:ind_sup] = psf
+            psf = psf_full
+        if n_psf &gt; n:
+            psf = vip.preproc.cosmetics.frame_crop(psf, n,force=True)
+        psf = psf/np.sum(np.abs(psf))
+        print(&#39;psf normalized&#39;)
+    else:
+        psf = None
+        print(&#39;psf entry missing in import info&#39;)
+    if quick_look:
+        frame, _, _, residuals_cube, _ = vip.pca.pca_fullfr.pca(data,angles,ncomp=quick_look,full_output=True)
+        stim_frame = compute_stim_map(vip.preproc.cube_derotate(residuals_cube,angles)) 
+        plots((frame,stim_frame))
+        return data,angles,psf,frame,stim_frame
+    else:
+        return data,angles,psf</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="mayo_hci.automatic_load_data.automatic_load_data"><code class="name flex">
+<span>def <span class="ident">automatic_load_data</span></span>(<span>data_name, channel=0, dir='default', quick_look=0, crop=0, center_im=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>automatic_load_data(data_name,channel=0,dir='default',RDI=False,quick_look=0,crop=0,center_im=None)
+loads ADI datasets automatically
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>data_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>name of the data to use in MAYO</dd>
+<dt><strong><code>channel</code></strong> :&ensp;<code>int</code></dt>
+<dd>channel to use if multiple channels, default is 0</dd>
+<dt><strong><code>quick_look</code></strong> :&ensp;<code>int</code></dt>
+<dd>if larger than 0, apply PCA-SFS and STIM with quick_look number of PC's</dd>
+<dt><strong><code>crop</code></strong> :&ensp;<code>int</code></dt>
+<dd>if crop &gt; 0, crops the ADI cube to the desired width, default is 0</dd>
+<dt><strong><code>center_im</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>(x,y), center of the frame</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>numpy array</code></dt>
+<dd>t x n x n ADI dataset</dd>
+<dt><strong><code>angles</code></strong> :&ensp;<code> numpy array</code></dt>
+<dd>list of angles</dd>
+<dt><strong><code>psf</code></strong> :&ensp;<code> numpy array</code></dt>
+<dd>n x n psf</dd>
+<dt><code>if quick_look &gt;0 :</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>frame</code></strong> :&ensp;<code> numpy array</code></dt>
+<dd>n x n, PCA-SFS processed frame</dd>
+<dt><strong><code>stim_frame</code></strong> :&ensp;<code> numpy array</code></dt>
+<dd>n x n, PCA-SFS STIM map</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def automatic_load_data(data_name,channel=0,dir=&#39;default&#39;,quick_look=0,crop=0,center_im=None):
+    &#34;&#34;&#34;
+    automatic_load_data(data_name,channel=0,dir=&#39;default&#39;,RDI=False,quick_look=0,crop=0,center_im=None)
+        loads ADI datasets automatically 
+    Parameters
+    ----------
+    data_name : str
+        name of the data to use in MAYO
+    channel : int
+        channel to use if multiple channels, default is 0
+    quick_look : int
+        if larger than 0, apply PCA-SFS and STIM with quick_look number of PC&#39;s
+    crop : int
+        if crop &gt; 0, crops the ADI cube to the desired width, default is 0
+    center_im : tuple
+        (x,y), center of the frame
+
+    Returns
+    -------
+    data : numpy array
+        t x n x n ADI dataset
+    angles :  numpy array
+        list of angles
+    psf :  numpy array
+        n x n psf
+
+    if quick_look &gt;0 : 
+    frame :  numpy array
+        n x n, PCA-SFS processed frame
+    stim_frame :  numpy array
+        n x n, PCA-SFS STIM map    
+    &#34;&#34;&#34; 
+    if dir == &#39;default&#39;:
+        try:
+            with open(os.path.dirname(mayo_hci.__file__) + &#39;/data_path.json&#39;, &#39;r&#39;) as read_data_path:
+                temp = json.load(read_data_path)
+                dir = temp[&#39;default_path_to_data&#39;]
+        except FileNotFoundError:
+            dir = &#39;./&#39;
+    with open(dir+data_name+&#39;/0_import_info.json&#39;, &#39;r&#39;) as read_file_import_info:
+        import_info = json.load(read_file_import_info)
+    
+    if import_info[&#39;cube&#39;]:
+        data = vip.fits.open_fits(dir+data_name+&#39;/&#39;+import_info[&#39;cube&#39;][channel][&#39;location&#39;])
+        if len(data.shape) == 4:
+            data = data[channel,:,:,:]
+        t,n_init,_ = data.shape
+        if crop:
+            if n_init &gt; crop:
+                data = vip.preproc.cosmetics.cube_crop_frames(data, crop, xy=(n_init//2+1,n_init//2+1),force=True)
+            else:
+                print(&#39;crop is larger than initial image, no cropped performed&#39;)
+        _,n,_ = data.shape
+        print(&#39;imported cube on channel: &#39; + import_info[&#39;cube&#39;][channel][&#39;channel_name&#39;])
+    else:
+        cube = None
+        print(&#39;data entry missing in import info&#39;)
+
+    if import_info[&#39;angles&#39;]:
+        angles = vip.fits.open_fits(dir+data_name+&#39;/&#39;+import_info[&#39;angles&#39;][channel][&#39;location&#39;])
+        if len(angles.shape) == 2:
+            angles = angles[channel,:]
+        angles = angles*import_info[&#39;angles_multiply&#39;]
+        if angles.shape[0] != t:
+            print(&#39;not right numbers of angles&#39;)
+    else:
+        angles = None
+        print(&#39;angles entry missing in import info&#39;)
+
+    if import_info[&#39;psf&#39;]:
+        psf = vip.fits.open_fits(dir+data_name+&#39;/&#39;+import_info[&#39;psf&#39;][channel][&#39;location&#39;])
+        if len(psf.shape) == 4:
+            try:
+                psf = psf[channel,import_info[&#39;psf&#39;][&#39;which_psf&#39;],:,:]
+            except:
+                psf = psf[channel,0,:,:]
+        elif len(psf.shape) == 3:
+            psf = psf[channel,:,:]
+        print(psf.shape)
+        n_psf,_ = psf.shape
+        print(psf.shape)
+        psf = psf*(psf&gt;0)
+        #psf -= np.min(psf)
+        if n_psf &lt; n:
+            print(&#39;dimension of psf modified to fit data&#39;)
+            psf_width = psf.shape[0]
+            ind_inf = int(n/2-psf_width/2)
+            ind_sup = int(n/2+psf_width/2)
+            psf_full = np.zeros((n,n))
+            psf_full[ind_inf:ind_sup,ind_inf:ind_sup] = psf
+            psf = psf_full
+        if n_psf &gt; n:
+            psf = vip.preproc.cosmetics.frame_crop(psf, n,force=True)
+        psf = psf/np.sum(np.abs(psf))
+        print(&#39;psf normalized&#39;)
+    else:
+        psf = None
+        print(&#39;psf entry missing in import info&#39;)
+    if quick_look:
+        frame, _, _, residuals_cube, _ = vip.pca.pca_fullfr.pca(data,angles,ncomp=quick_look,full_output=True)
+        stim_frame = compute_stim_map(vip.preproc.cube_derotate(residuals_cube,angles)) 
+        plots((frame,stim_frame))
+        return data,angles,psf,frame,stim_frame
+    else:
+        return data,angles,psf</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="mayo_hci" href="index.html">mayo_hci</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="mayo_hci.automatic_load_data.automatic_load_data" href="#mayo_hci.automatic_load_data.automatic_load_data">automatic_load_data</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
